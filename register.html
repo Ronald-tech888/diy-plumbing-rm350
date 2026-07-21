@@ -293,7 +293,7 @@
           <div class="fact"><span>Class size</span> Max 12 participants</div>
         </div>
 
-        <div class="price-note">Early Bird: RM280 for first 5 confirmed seats. Standard: RM350 after Early Bird seats are taken.</div>
+        <div class="price-note">Workshop fee: RM350 per participant.</div>
       </section>
 
       <section class="panel">
@@ -301,7 +301,7 @@
 
         <form action="https://formspree.io/f/mojbnpwl" method="POST">
           <input type="hidden" name="_subject" value="New DIY Plumbing August Workshop Registration">
-          <input type="hidden" name="_next" value="https://ronald-tech888.github.io/diy-plumbing-newlook/thanks.html">
+          <input type="hidden" name="_next" value="https://ronald-tech888.github.io/diy-plumbing-rm350/thanks.html">
           <input type="text" name="_gotcha" style="display:none">
 
           <label>
@@ -324,7 +324,7 @@
             Choose your preferred workshop date *
             <span class="field-note">Choose one Saturday session.</span>
             <div class="radio-grid">
-              <label class="radio-card is-sold-out"><input type="radio" name="Workshop Date" value="1 August 2026" disabled> <span>1 Aug 2026<span class="sold-out-note">Early Bird Sold Out</span></span></label>
+              <label class="radio-card is-sold-out"><input type="radio" name="Workshop Date" value="1 August 2026" disabled> <span>1 Aug 2026<span class="sold-out-note">Sold Out</span></span></label>
               <label class="radio-card"><input type="radio" name="Workshop Date" value="8 August 2026" required> 8 Aug 2026</label>
               <label class="radio-card"><input type="radio" name="Workshop Date" value="15 August 2026"> 15 Aug 2026</label>
               <label class="radio-card"><input type="radio" name="Workshop Date" value="22 August 2026"> 22 Aug 2026</label>
@@ -334,8 +334,7 @@
           <label>
             Ticket Selection *
             <div class="radio-grid">
-              <label class="radio-card"><input type="radio" name="Ticket" value="Early Bird - RM280" required> Early Bird (first 5 seats only) - RM280</label>
-              <label class="radio-card"><input type="radio" name="Ticket" value="Standard - RM350"> Standard - RM350</label>
+              <label class="radio-card"><input type="radio" name="Ticket" value="Standard - RM350" required> Workshop Seat - RM350</label>
             </div>
           </label>
 
@@ -383,7 +382,6 @@
       '22-Aug': '22 August 2026'
     };
     const ticketMap = {
-      'early-bird': 'Early Bird - RM280',
       'standard': 'Standard - RM350'
     };
 
@@ -417,7 +415,7 @@
             fbq('track', 'Lead', {
               content_name: 'DIY Plumbing Workshop August 2026',
               content_category: 'Workshop',
-              value: 280,
+              value: 350,
               currency: 'MYR'
             });
           }

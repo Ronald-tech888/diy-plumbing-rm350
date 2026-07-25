@@ -745,18 +745,8 @@
   </div>
 
   <script>
-    let checkoutTrackedThisPage = false;
     document.querySelectorAll('.js-register').forEach(function(button) {
       button.addEventListener('click', function() {
-        if (!checkoutTrackedThisPage && typeof fbq === 'function') {
-          fbq('track', 'InitiateCheckout', {
-            content_name: 'DIY Plumbing Workshop August 2026',
-            content_category: 'Workshop',
-            value: 350,
-            currency: 'MYR'
-          });
-          checkoutTrackedThisPage = true;
-        }
         if (typeof gtag === 'function') {
           gtag('event', 'click_register', {
             event_category: 'landing_page',

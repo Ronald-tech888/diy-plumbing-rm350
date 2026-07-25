@@ -238,8 +238,8 @@
     <p><strong>To confirm your seat, send your payment slip via WhatsApp or email:</strong></p>
 
     <div class="pay-actions">
-      <a class="contact-card whatsapp" href="https://wa.me/60133083049?text=I've%20made%20payment%20for%20DIY%20Plumbing%20Workshop" target="_blank">WhatsApp +6013-308-3049</a>
-      <a class="contact-card email" href="mailto:purchasingpoweruser@gmail.com?subject=Payment%20Slip%20-%20DIY%20Plumbing%20Workshop">Email Payment Slip</a>
+      <a class="contact-card whatsapp js-payment-slip" href="https://wa.me/60133083049?text=Hi%20Ronald%2C%20I%27ve%20paid%20RM350%20for%20DIY%20Plumbing%20Level%201.%20I%27m%20attaching%20my%20payment%20slip%20now." target="_blank" rel="noopener">WhatsApp Payment Slip</a>
+      <a class="contact-card email js-payment-slip" href="mailto:purchasingpoweruser@gmail.com?subject=RM350%20Payment%20Slip%20-%20DIY%20Plumbing%20Level%201">Email Payment Slip</a>
     </div>
 
     <div class="urgent-note">
@@ -263,7 +263,7 @@
 
   <script>
     if (typeof fbq === 'function') {
-      fbq('track', 'CompleteRegistration', {
+      fbq('trackCustom', 'PaymentInstructionsViewed', {
         content_name: 'DIY Plumbing Workshop August 2026',
         content_category: 'Workshop',
         value: 350,
@@ -271,11 +271,24 @@
       });
     }
     if (typeof gtag === 'function') {
-      gtag('event', 'complete_registration', {
-        event_category: 'registration_form',
+      gtag('event', 'view_payment_instructions', {
+        event_category: 'payment_handoff',
         event_label: 'DIY Plumbing August 2026'
       });
     }
+
+    document.querySelectorAll('.js-payment-slip').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (typeof fbq === 'function') {
+          fbq('trackCustom', 'PaymentSlipIntent', {
+            content_name: 'DIY Plumbing Workshop August 2026',
+            content_category: 'Workshop',
+            value: 350,
+            currency: 'MYR'
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>

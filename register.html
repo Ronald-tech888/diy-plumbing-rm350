@@ -294,7 +294,7 @@
         <p>Your RM350 workshop seat is already selected.</p>
 
         <form action="https://formspree.io/f/mojbnpwl" method="POST">
-          <input type="hidden" name="_subject" value="New DIY Plumbing August Workshop Registration">
+          <input type="hidden" name="_subject" value="New DIY Plumbing August/September Workshop Registration">
           <input type="hidden" name="_next" value="https://ronald-tech888.github.io/diy-plumbing-rm350/thanks.html">
           <input type="hidden" name="Lead Source" id="lead-source" value="direct-registration">
           <input type="hidden" name="Ticket" value="Standard - RM350">
@@ -320,10 +320,10 @@
             Choose your preferred workshop date *
             <span class="field-note">Choose one Saturday session.</span>
             <div class="radio-grid">
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="1 August 2026" required> 1 Aug 2026</label>
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="8 August 2026"> 8 Aug 2026</label>
+              <label class="radio-card"><input type="radio" name="Workshop Date" value="8 August 2026" required> 8 Aug 2026</label>
               <label class="radio-card"><input type="radio" name="Workshop Date" value="15 August 2026"> 15 Aug 2026</label>
               <label class="radio-card"><input type="radio" name="Workshop Date" value="22 August 2026"> 22 Aug 2026</label>
+              <label class="radio-card"><input type="radio" name="Workshop Date" value="5 September 2026"> 5 Sep 2026</label>
             </div>
           </label>
 
@@ -341,10 +341,10 @@
     document.getElementById('lead-source').value = leadSource;
 
     const dateMap = {
-      '1-Aug': '1 August 2026',
       '8-Aug': '8 August 2026',
       '15-Aug': '15 August 2026',
-      '22-Aug': '22 August 2026'
+      '22-Aug': '22 August 2026',
+      '5-Sep': '5 September 2026'
     };
     if (dateMap[selectedDate]) {
       const dateInput = document.querySelector('input[name="Workshop Date"][value="' + dateMap[selectedDate] + '"]');

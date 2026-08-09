@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Register – DIY Plumbing Workshop for Beginners</title>
-  <meta name="description" content="Register for the DIY Plumbing Workshop for Beginners in Damansara Damai, Petaling Jaya.">
+  <title>Reserve 12 September Seat | DIY Plumbing Level 1</title>
+  <meta name="description" content="Seven seats remain. Reserve your RM350 seat for DIY Plumbing Level 1 on Saturday, 12 September 2026 in Damansara Damai, Petaling Jaya.">
+
   <!-- Meta Pixel Code: DIY Plumbing August Meta Ads -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -18,7 +19,7 @@
     fbq('init', '1644467059955423');
     fbq('track', 'PageView');
     fbq('track', 'InitiateCheckout', {
-      content_name: 'DIY Plumbing Workshop August 2026',
+      content_name: 'DIY Plumbing Level 1 - 12 September 2026',
       content_category: 'Workshop',
       value: 350,
       currency: 'MYR'
@@ -271,17 +272,18 @@
 </head>
 <body>
   <main class="wrap">
-    <a class="back" href="index.html">← Back to workshop page</a>
+    <a class="back" href="index.html">&larr; Back to workshop page</a>
 
     <div class="page-grid">
       <section class="panel">
         <div class="eyebrow">Registration</div>
-        <h1>Reserve your DIY Plumbing seat.</h1>
-        <p>Enter your contact details, then continue straight to the RM350 payment instructions.</p>
+        <h1>Claim one of 7 remaining seats.</h1>
+        <p>Complete this short form, then pay RM350 and send your payment slip to confirm your 12 September seat.</p>
 
         <div class="facts">
           <div class="fact"><span>Workshop</span> DIY Plumbing for Beginners</div>
-          <div class="fact"><span>Time</span> 9:00 AM – 1:00 PM</div>
+          <div class="fact"><span>Date</span> Saturday, 12 September 2026</div>
+          <div class="fact"><span>Time</span> 9:00 AM &ndash; 1:00 PM</div>
           <div class="fact"><span>Venue</span> Damansara Damai, Petaling Jaya</div>
           <div class="fact"><span>Class size</span> Max 12 participants</div>
         </div>
@@ -290,14 +292,12 @@
       </section>
 
       <section class="panel">
-        <h2>Enter 3 details to continue</h2>
-        <p>Your RM350 workshop seat is already selected.</p>
+        <h2>Registration Form</h2>
 
         <form action="https://formspree.io/f/mojbnpwl" method="POST">
-          <input type="hidden" name="_subject" value="New DIY Plumbing August/September Workshop Registration">
+          <input type="hidden" name="_subject" value="New RM350 Registration - DIY Plumbing 12 September 2026">
           <input type="hidden" name="_next" value="https://ronald-tech888.github.io/diy-plumbing-rm350/thanks.html">
           <input type="hidden" name="Lead Source" id="lead-source" value="direct-registration">
-          <input type="hidden" name="Ticket" value="Standard - RM350">
           <input type="text" name="_gotcha" style="display:none">
 
           <label>
@@ -312,23 +312,36 @@
 
           <label>
             WhatsApp / Mobile Number *
-            <input name="WhatsApp / Mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="e.g., 013-308 3049" required pattern="^\+?[0-9\-\s]{8,20}$" title="Please enter a valid phone number">
+            <input name="WhatsApp / Mobile" type="tel" autocomplete="tel" placeholder="e.g., +6013-308-3049" required pattern="^\+?[0-9\-\s]{8,20}$" title="Please enter a valid phone number with country code">
             <span class="field-note">Include country code if you are outside Malaysia.</span>
           </label>
 
           <label>
-            Choose your preferred workshop date *
-            <span class="field-note">Choose one Saturday session.</span>
+            Workshop session *
             <div class="radio-grid">
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="8 August 2026" required> 8 Aug 2026</label>
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="15 August 2026"> 15 Aug 2026</label>
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="22 August 2026"> 22 Aug 2026</label>
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="5 September 2026"> 5 Sep 2026</label>
+              <label class="radio-card"><input type="radio" name="Workshop Date" value="12 September 2026" checked required> Saturday, 12 September 2026 · 9 AM–1 PM</label>
             </div>
           </label>
 
+          <label>
+            Ticket Selection *
+            <div class="radio-grid">
+              <label class="radio-card"><input type="radio" name="Ticket" value="Standard - RM350" checked required> One workshop seat - RM350</label>
+            </div>
+          </label>
+
+          <label>
+            Special notes / plumbing questions <span class="field-note">Optional</span>
+            <textarea name="Additional Notes" placeholder="Let us know if you have specific fixtures, rental units, or issues you want to focus on."></textarea>
+          </label>
+
+          <label class="radio-card">
+            <input type="checkbox" name="Seat Confirmation" value="I acknowledge the payment policy" required>
+            I understand seats are confirmed only after payment slip is sent. Replacements allowed; no refunds within 3 days of the workshop.
+          </label>
+
           <button class="btn" type="submit">Continue to RM350 Payment</button>
-          <p class="privacy">Next: Touch 'n Go or bank transfer details plus a one-tap WhatsApp slip button. Seats are confirmed after payment. Replacements are allowed; no refunds within 3 days of the workshop.</p>
+          <p class="privacy">Your details are used only to follow up on this workshop registration.</p>
         </form>
       </section>
     </div>
@@ -337,22 +350,24 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const selectedDate = params.get('date');
+    const selectedTicket = params.get('ticket');
     const leadSource = params.get('source') || 'direct-registration';
     document.getElementById('lead-source').value = leadSource;
 
     const dateMap = {
-      '8-Aug': '8 August 2026',
-      '15-Aug': '15 August 2026',
-      '22-Aug': '22 August 2026',
-      '5-Sep': '5 September 2026'
+      '12-Sep': '12 September 2026'
     };
+    const ticketMap = {
+      'standard': 'Standard - RM350'
+    };
+
     if (dateMap[selectedDate]) {
       const dateInput = document.querySelector('input[name="Workshop Date"][value="' + dateMap[selectedDate] + '"]');
       if (dateInput) dateInput.checked = true;
     }
-    if (!document.querySelector('input[name="Workshop Date"]:checked')) {
-      const defaultDate = document.querySelector('input[name="Workshop Date"][value="8 August 2026"]');
-      if (defaultDate) defaultDate.checked = true;
+    if (ticketMap[selectedTicket]) {
+      const ticketInput = document.querySelector('input[name="Ticket"][value="' + ticketMap[selectedTicket] + '"]');
+      if (ticketInput) ticketInput.checked = true;
     }
 
     document.querySelector('form').addEventListener('submit', async function(event) {
@@ -374,7 +389,7 @@
         if (response.ok) {
           if (typeof fbq === 'function') {
             fbq('track', 'Lead', {
-              content_name: 'DIY Plumbing Workshop August 2026',
+              content_name: 'DIY Plumbing Level 1 - 12 September 2026',
               content_category: 'Workshop',
               value: 350,
               currency: 'MYR'
@@ -383,12 +398,10 @@
           if (typeof gtag === 'function') {
             gtag('event', 'submit_registration', {
               event_category: 'registration_form',
-              event_label: 'DIY Plumbing August 2026'
+              event_label: 'DIY Plumbing 12 September 2026'
             });
           }
-          window.setTimeout(function() {
-            window.location.href = 'thanks.html';
-          }, 300);
+          window.location.href = 'thanks.html';
           return;
         }
 

@@ -320,7 +320,6 @@
             Choose your preferred workshop date *
             <span class="field-note">Choose one Saturday session.</span>
             <div class="radio-grid">
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="15 August 2026"> 15 Aug 2026</label>
               <label class="radio-card"><input type="radio" name="Workshop Date" value="22 August 2026"> 22 Aug 2026</label>
               <label class="radio-card"><input type="radio" name="Workshop Date" value="5 September 2026"> 5 Sep 2026</label>
               <label class="radio-card"><input type="radio" name="Workshop Date" value="12 September 2026" required> 12 Sep 2026</label>
@@ -341,10 +340,9 @@
     document.getElementById('lead-source').value = leadSource;
 
     const dateMap = {
-      '12-Sep': '12 September 2026',
-      '15-Aug': '15 August 2026',
       '22-Aug': '22 August 2026',
-      '5-Sep': '5 September 2026'
+      '5-Sep': '5 September 2026',
+      '12-Sep': '12 September 2026'
     };
     if (dateMap[selectedDate]) {
       const dateInput = document.querySelector('input[name="Workshop Date"][value="' + dateMap[selectedDate] + '"]');

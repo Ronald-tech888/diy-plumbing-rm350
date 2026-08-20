@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PJ 零基础家居水管维修实作课 | DIY Plumbing Level 1</title>
+  <meta name="description" content="9月12日来到 Damansara Damai，参加4小时小班制家居水管维修实作课。零基础也能学会处理常见漏水、堵塞、水龙头和水管问题。">
+
+  <meta property="og:title" content="PJ 零基础家居水管维修实作课">
+  <meta property="og:description" content="家里漏水时不再慌张。9月12日，用4小时亲手学会常见家居水管维修。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../hero.jpg">
+
+  <!-- Meta Pixel Code: DIY Plumbing Mandarin September Meta Ads -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1644467059955423');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_name: 'DIY Plumbing Level 1 Mandarin - 12 September 2026',
+      content_category: 'Workshop',
+      value: 280,
+      currency: 'MYR'
+    });
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1644467059955423&ev=PageView&noscript=1">
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5e6a75;
+      --blue: #1167b1;
+      --blue-dark: #0b4f89;
+      --yellow: #ffc857;
+      --green: #168a5b;
+      --cream: #fff8eb;
+      --soft: #f4f8fb;
+      --line: #dce6ee;
+      --danger: #d64545;
+      --shadow: 0 18px 45px rgba(14, 44, 69, .14);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--soft);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(255, 200, 87, .42), transparent 35%),
+        linear-gradient(135deg, #ffffff 0%, #ecf7ff 100%);
+      padding: 42px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #e6f3ff;
+      color: var(--blue-dark);
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    h1 {
+      font-size: clamp(39px, 5.2vw, 68px);
+      line-height: .96;
+      margin: 18px 0 16px;
+      letter-spacing: -.05em;
+    }
+
+    .lead {
+      color: #354452;
+      font-size: clamp(18px, 2.2vw, 22px);
+      margin: 0 0 22px;
+      max-width: 680px;
+    }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 24px 0;
+    }
+
+    .fact {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 14px 15px;
+      border-radius: 16px;
+      font-weight: 900;
+      box-shadow: 0 8px 24px rgba(12, 55, 92, .06);
+    }
+
+    .fact span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      padding: 15px 22px;
+      text-decoration: none;
+      font-weight: 950;
+      box-shadow: 0 12px 24px rgba(17, 103, 177, .24);
+      transition: transform .15s ease, box-shadow .15s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 28px rgba(17, 103, 177, .3);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--blue-dark);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .microcopy {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .microcopy strong { color: var(--danger); }
+
+    .hero-card {
+      background: white;
+      border-radius: 30px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(17, 103, 177, .1);
+      overflow: visible;
+    }
+
+    .hero-card img {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .seat-badge {
+      background: rgba(255, 255, 255, .96);
+      border-radius: 18px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      width: 100%;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, .16);
+      font-weight: 950;
+    }
+
+    .seat-badge span {
+      color: var(--green);
+      display: block;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    section { padding: 58px 0; }
+
+    .section-title {
+      max-width: 780px;
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      font-size: clamp(29px, 3.6vw, 44px);
+      line-height: 1.08;
+      margin: 0 0 10px;
+      letter-spacing: -.03em;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .proof-strip {
+      margin-top: -26px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .proof-box {
+      background: #102f4b;
+      color: white;
+      border-radius: var(--radius);
+      padding: 22px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .proof-item {
+      border-right: 1px solid rgba(255,255,255,.18);
+      padding-right: 14px;
+    }
+
+    .proof-item:last-child { border-right: 0; }
+    .proof-item strong { display: block; font-size: 24px; }
+    .proof-item span { color: rgba(255,255,255,.78); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(14, 44, 69, .07);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .tick-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .tick-list li {
+      padding-left: 30px;
+      position: relative;
+    }
+
+    .tick-list li:before {
+      content: "âœ“";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #def7ec;
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .offer { background: var(--cream); }
+
+    .dates {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+      max-width: 560px;
+    }
+
+    .date-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+      font-weight: 950;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .date-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .date-card.is-sold-out {
+      background: #f3f6f9;
+      color: #7a8a9a;
+      border-style: dashed;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .sold-out-note {
+      display: block;
+      margin-top: 8px;
+      color: #d04444;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .price {
+      background: white;
+      border-radius: var(--radius);
+      padding: 26px;
+      border: 2px solid transparent;
+      box-shadow: var(--shadow);
+    }
+
+    .price.featured {
+      border-color: var(--yellow);
+      transform: translateY(-8px);
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--yellow);
+      color: #3b2b00;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 10px;
+    }
+
+    .amount {
+      font-size: 42px;
+      font-weight: 950;
+      letter-spacing: -.04em;
+      margin: 4px 0;
+    }
+
+    .price-note {
+      margin: 22px 0 0;
+      color: #3b2b00;
+      font-weight: 800;
+      background: #fff1bf;
+      border: 1px solid #ffe08a;
+      padding: 14px 16px;
+      border-radius: 16px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .trainer {
+      background: white;
+      border-radius: var(--radius);
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 18px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .trainer img {
+      width: 120px;
+      height: 120px;
+      border-radius: 18px;
+      object-fit: cover;
+    }
+
+    .quote {
+      background: white;
+      border-left: 5px solid var(--blue);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(14, 44, 69, .08);
+    }
+
+    .faq {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 950;
+    }
+
+    details p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .final-cta {
+      background: linear-gradient(135deg, #0d3d66, #1167b1);
+      color: white;
+      text-align: center;
+      border-radius: 32px;
+      padding: 42px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .final-cta p {
+      color: rgba(255,255,255,.82);
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+
+    .sticky-mobile { display: none; }
+    .sticky-mobile.is-hidden { display: none; }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .split,
+      .proof-box,
+      .cards,
+      .price-grid,
+      .faq {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-facts,
+      .dates { grid-template-columns: 1fr 1fr; }
+
+      .proof-item {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.18);
+        padding-bottom: 16px;
+      }
+
+      .proof-item:last-child { border-bottom: 0; }
+      .price.featured { transform: none; }
+      section { padding: 42px 0; }
+      body { padding-bottom: 76px; }
+
+      .sticky-mobile {
+        display: flex;
+        position: fixed;
+        z-index: 99;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .sticky-mobile .btn { width: 100%; }
+    }
+
+    @media (max-width: 520px) {
+      .quick-facts,
+      .dates,
+      .trainer { grid-template-columns: 1fr; }
+
+      .trainer img {
+        width: 100%;
+        height: 220px;
+      }
+
+      h1 { font-size: 42px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">DIY Plumbing Level 1 · Desmond 老师亲自指导的实作课</div>
+        <h1>家里漏水时，不必再慌张。</h1>
+        <p class="lead">最多12人的小班实作课。跟随拥有25年以上经验的 Desmond 老师，亲手学习处理漏水、堵塞、水龙头和水管问题。</p>
+
+        <div class="quick-facts">
+          <div class="fact"><span>课程费用</span> 每位 RM280</div>
+          <div class="fact"><span>日期</span> 2026年9月12日（星期六）</div>
+          <div class="fact"><span>时间</span> 上午9:00至下午1:00</div>
+          <div class="fact"><span>名额</span> 最多12人</div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary js-register" href="register.html?source=hero-cta">预留名额 · RM280</a>
+          <a class="btn btn-secondary" href="https://wa.me/60133083049?text=%E4%BD%A0%E5%A5%BD%20Ronald%EF%BC%8C%E6%88%91%E6%83%B3%E8%AF%A2%E9%97%AE9%E6%9C%8812%E6%97%A5%E7%9A%84%20DIY%20Plumbing%20Level%201%20%E8%AF%BE%E7%A8%8B%E3%80%82">WhatsApp 咨询</a>
+        </div>
+        <div class="microcopy"><strong>全班最多12人，每位 RM280。</strong> 填写表格后发送付款凭证，即可确认名额。</div>
+      </div>
+
+      <div class="hero-card">
+        <img src="../hero.jpg" alt="八打灵再也家居水管维修实作课">
+        <div class="seat-badge"><span>学习成果</span> 减少依赖，提升信心，更有能力掌控家居维修。</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap proof-strip">
+    <div class="proof-box">
+      <div class="proof-item"><strong>25年以上</strong><span>导师水管工程经验</span></div>
+      <div class="proof-item"><strong>4小时</strong><span>亲手操作与练习</span></div>
+      <div class="proof-item"><strong>最多12人</strong><span>小班制个人指导</span></div>
+      <div class="proof-item"><strong>工具齐全</strong><span>无需自备工具</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-title">
+        <h2>适合不想再为简单维修一直等、一直猜、一直多花钱的屋主。</h2>
+        <p class="sub">这不是只听不做的讲座。你会亲手使用工具、练习步骤，并学会在找水管工之前先检查什么。</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3>你将学会</h3>
+          <ul class="tick-list">
+            <li>如何安全关闭水源</li>
+            <li>如何更换软管</li>
+            <li>如何正确使用 PTFE 生料带</li>
+            <li>如何清理常见的存水弯堵塞</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>你将亲手练习</h3>
+          <ul class="tick-list">
+            <li>基本工具的正确使用方法</li>
+            <li>检查漏水与排查问题</li>
+            <li>找出水压不足的常见原因</li>
+            <li>清理地漏与 P 型存水弯</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>课程包含</h3>
+          <ul class="tick-list">
+            <li>工具、练习设备与安全装备</li>
+            <li>实用家居水管检查清单</li>
+            <li>咖啡、茶与点心</li>
+            <li>课程参与证书</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-title">
+        <h2>这堂课适合我吗？</h2>
+        <p class="sub">适合想更有信心处理基本漏水、堵塞、水龙头和水管问题的人。</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3>屋主</h3>
+          <p>当家里漏水、堵塞或设备失灵时，学会第一时间应该检查什么。</p>
+        </div>
+
+        <div class="card">
+          <h3>房地产经纪与 Airbnb 经营者</h3>
+          <p>在问题变成租客或住客投诉之前，更快处理基本水管问题。</p>
+        </div>
+
+        <div class="card">
+          <h3>父母与实用技能初学者</h3>
+          <p>通过工具、水龙头、软管、存水弯和简单排查练习建立信心。</p>
+        </div>
+      </div>
+
+      <br>
+      <div class="cta-row">
+        <a class="btn btn-primary js-register" href="register.html?source=mid-page-cta">预留课程名额</a>
+        <a class="btn btn-secondary" href="https://wa.me/60133083049?text=%E4%BD%A0%E5%A5%BD%20Ronald%EF%BC%8C%E6%88%91%E6%83%B3%E8%AF%A2%E9%97%AE9%E6%9C%8812%E6%97%A5%E7%9A%84%20DIY%20Plumbing%20Level%201%20%E8%AF%BE%E7%A8%8B%E3%80%82">WhatsApp 咨询</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="offer" id="pricing">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>唯一场次：2026年9月12日。</h2>
+        <p class="sub">星期六小班实作。付款后发送凭证，即可确认名额。</p>
+      </div>
+
+      <div class="dates">
+        <a class="date-card js-register" href="register.html?source=date-card">2026年9月12日 <span>星期六 · 上午9:00至下午1:00</span></a>
+      </div>
+
+      <div class="price-grid">
+        <div class="price featured">
+          <div class="tag">个人报名</div>
+          <h3>课程名额</h3>
+          <div class="amount">RM280</div>
+          <p>一位参加者，报名 2026年9月12日的实作课程。</p>
+          <a class="btn btn-primary js-register" href="register.html?source=pricing-standard">预留1个名额</a>
+        </div>
+      </div>
+
+      <div class="price-note">每位 RM280。付款并发送凭证后才确认名额。实作设备有限，全班最多12人。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div class="trainer">
+        <img src="../desmond.jpg" alt="认证水管导师 Desmond Sia">
+        <div>
+          <h3>认识导师 Desmond Sia</h3>
+          <p>认证水管工兼 CIDB G3 承包商，拥有25年以上实务经验，擅长一步步指导初学者安全理解和处理常见家居水管问题。</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="quote">“课程很实用，也很容易跟上。现在我知道找水管工之前应该先检查什么。”<br><br><strong>— 课程参加者</strong></div>
+        <br>
+        <div class="quote">“很适合屋主。亲手练习让我更容易记住每个步骤。”<br><br><strong>— 课程参加者</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>报名前常见问题</h2>
+        <p class="sub">以下是初学者报名家居水管维修实作课前最常问的问题。</p>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>完全没有基础也适合吗？</summary>
+          <p>适合。课程专为屋主和没有水管背景的成人设计，导师会一步一步指导。</p>
+        </details>
+
+        <details>
+          <summary>需要自备工具吗？</summary>
+          <p>不需要。课程会提供工具、练习设备和基本安全用品。</p>
+        </details>
+
+        <details>
+          <summary>女性、夫妻或年轻人可以参加吗？</summary>
+          <p>可以。课程对初学者友好，适合任何希望更有信心处理家居维修的人。</p>
+        </details>
+
+        <details>
+          <summary>报名后会怎样？</summary>
+          <p>提交表格后会看到付款方式。完成付款并发送凭证后，名额才正式确认。</p>
+        </details>
+
+        <details>
+          <summary>课程使用什么语言？</summary>
+          <p>导师会用简单易懂的英语讲解和示范，并可按需要提供华语或广东话辅助说明。</p>
+        </details>
+
+        <details>
+          <summary>付款后无法出席怎么办？</summary>
+          <p>你可以把名额转让给他人，或联系主办方了解可行安排。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="final-cta">
+        <h2>准备好告别漏水时只能靠猜了吗？</h2>
+        <p>现在预留名额。小班实作、清楚步骤，零基础也能安心学习。</p>
+        <a class="btn btn-primary js-register" href="register.html?source=final-cta">预留我的名额 · RM280</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sticky-mobile">
+    <a class="btn btn-primary js-register" href="register.html?source=sticky-mobile">预留名额 · RM280</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('.js-register').forEach(function(button) {
+      button.addEventListener('click', function() {
+        if (typeof gtag === 'function') {
+          gtag('event', 'click_register', {
+            event_category: 'landing_page',
+            event_label: button.textContent.trim()
+          });
+        }
+      });
+    });
+
+    document.querySelectorAll('details').forEach(function(item) {
+      item.addEventListener('toggle', function() {
+        if (item.open && typeof gtag === 'function') {
+          gtag('event', 'faq_open', {
+            event_category: 'landing_page',
+            event_label: item.querySelector('summary').textContent.trim()
+          });
+        }
+      });
+    });
+
+    const stickyMobile = document.querySelector('.sticky-mobile');
+    const heroCard = document.querySelector('.hero-card');
+    if (stickyMobile && heroCard && 'IntersectionObserver' in window) {
+      const heroObserver = new IntersectionObserver(function(entries) {
+        const heroVisible = entries.some(function(entry) {
+          return entry.isIntersecting;
+        });
+        stickyMobile.classList.toggle('is-hidden', heroVisible);
+      }, { threshold: 0.05 });
+
+      heroObserver.observe(heroCard);
+    }
+  </script>
+
+</body>
+</html>

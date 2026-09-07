@@ -268,7 +268,14 @@
       .panel { padding: 22px; }
     }
   [hidden] { display: none !important; }
-  </style>
+
+.consent-section { display:grid; gap:14px; padding:20px; border:1px solid var(--line,#dce5eb); border-radius:16px; background:var(--soft,#f4f8fc); }
+.consent-section h3 { margin:0; font-size:19px; }
+.consent-section p { margin:0; font-size:14px; line-height:1.7; overflow-wrap:anywhere; }
+.consent-option { display:flex; gap:12px; align-items:flex-start; padding:14px; background:white; font-size:14px; font-weight:400; line-height:1.65; cursor:pointer; }
+.consent-option input[type=checkbox] { width:20px; height:20px; flex:0 0 20px; margin:3px 0 0; padding:0; accent-color:#1167b1; }
+.consent-section small { font-size:13px; font-weight:400; }
+</style>
 </head>
 <body data-language="EN"><main class="wrap"><a class="back" href="index.html">← Back to workshop</a>
     <div class="page-grid"><section class="panel"><div class="eyebrow">DIY Plumbing Level 1</div><h1>Choose your October English class</h1><p>9:00 AM–1:00 PM · Maximum 12 participants per class</p>
@@ -287,6 +294,32 @@
     <label>Ticket *<select id="ticket" name="Ticket" required style="padding:14px;width:100%;font:inherit"></select></label>
     <label id="buddy-field" hidden>Buddy participant name *<input name="Buddy Participant" id="buddy-name" maxlength="120"></label>
     <p id="order-summary" role="status"></p>
+<section class="consent-section" aria-labelledby="pdpa-heading">
+            <h3 id="pdpa-heading">Personal Data Protection &amp; Privacy</h3>
+            <p>By submitting this form, I acknowledge that the organiser of the DIY Plumbing Workshop may collect, process and store the personal data I provide for registration, payment, workshop administration, communication, certification, safety and other purposes reasonably related to the workshop, in accordance with Malaysia's Personal Data Protection Act 2010 (Act 709).</p>
+            <p>Where reasonably necessary for these purposes, relevant information may be shared with the trainer, venue, training partners and service providers involved in organising and delivering the workshop. It will not be disclosed to unrelated third parties except where required by law or with appropriate consent.</p>
+            <p>I may request access to or correction of my personal data, or withdraw consent where applicable, by contacting the organiser via WhatsApp at +6013-308-3049 or email at purchasingpoweruser@gmail.com.</p>
+
+            <label class="radio-card consent-option">
+              <input id="pdpa-ack" type="checkbox" name="PDPA Acknowledgement" value="I have read and understood the Personal Data Protection & Privacy Notice" required>
+              I have read and understood the Personal Data Protection &amp; Privacy Notice above. *
+            </label>
+          </section>
+
+          <section class="consent-section" aria-labelledby="permissions-heading">
+            <h3 id="permissions-heading">Optional Permissions</h3>
+
+            <label class="radio-card consent-option">
+              <input type="checkbox" name="Photo and Video Consent" value="I consent to identifiable photos and videos being used">
+              I consent to photos or videos taken during the workshop in which I may be identifiable being used for documentation, social media and promotional purposes. <span class="field-note">Optional</span>
+            </label>
+
+            <label class="radio-card consent-option">
+              <input type="checkbox" name="Marketing Consent" value="I agree to receive future workshop and programme updates">
+              I agree to receive information about future DIY Plumbing workshops, courses and related programmes via WhatsApp, email or other communication channels. <span class="field-note">Optional</span>
+            </label>
+          </section>
+<p class="privacy">The optional permissions are not required to register for the workshop.</p>
     <button class="btn" type="submit">Submit registration & view payment details</button>
     <p id="form-error" role="alert"></p><p class="privacy">Seats are confirmed after payment verification and session confirmation. Replacements are allowed; no refunds within 3 days of the workshop.</p>
     </form></section></div><noscript>Please enable JavaScript or contact Ronald on WhatsApp: +60133083049.</noscript></main>

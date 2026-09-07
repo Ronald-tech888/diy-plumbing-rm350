@@ -30,6 +30,10 @@
     button.disabled=true;button.textContent=zh?'正在提交…':'Submitting…';
     document.getElementById('form-error').textContent='';
     const data=new FormData(form);
+    data.set('Photo and Video Consent',form.elements['Photo and Video Consent'].checked?'Yes':'No');
+    data.set('Marketing Consent',form.elements['Marketing Consent'].checked?'Yes':'No');
+    data.set('Privacy Notice Version','2026-09-07');
+    data.set('Consent Recorded At',new Date().toISOString());
     data.set('Ticket',t.label);data.set('Workshop Date',`${s.day} October 2026`);
     data.set('Class Language',s.language);data.set('Class Time MYT',s.time);data.set('Seats',String(t.seats));
     data.set('Amount Due RM',String(t.amount));data.set('Registration ID',registrationId);

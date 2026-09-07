@@ -268,7 +268,14 @@
       .panel { padding: 22px; }
     }
   [hidden] { display: none !important; }
-  </style>
+
+.consent-section { display:grid; gap:14px; padding:20px; border:1px solid var(--line,#dce5eb); border-radius:16px; background:var(--soft,#f4f8fc); }
+.consent-section h3 { margin:0; font-size:19px; }
+.consent-section p { margin:0; font-size:14px; line-height:1.7; overflow-wrap:anywhere; }
+.consent-option { display:flex; gap:12px; align-items:flex-start; padding:14px; background:white; font-size:14px; font-weight:400; line-height:1.65; cursor:pointer; }
+.consent-option input[type=checkbox] { width:20px; height:20px; flex:0 0 20px; margin:3px 0 0; padding:0; accent-color:#1167b1; }
+.consent-section small { font-size:13px; font-weight:400; }
+</style>
 </head>
 <body data-language="ZH"><main class="wrap"><a class="back" href="index.html">← 返回课程页面</a>
     <div class="page-grid"><section class="panel"><div class="eyebrow">DIY Plumbing Level 1</div><h1>选择10月中文班</h1><p>下午2:00–6:00 · 每班最多12人</p>
@@ -287,6 +294,18 @@
     <label>票种 *<select id="ticket" name="Ticket" required style="padding:14px;width:100%;font:inherit"></select></label>
     <label id="buddy-field" hidden>同伴姓名 *<input name="Buddy Participant" id="buddy-name" maxlength="120"></label>
     <p id="order-summary" role="status"></p>
+<section class="consent-section" aria-labelledby="pdpa-heading">
+<h3 id="pdpa-heading">个人资料保护与隐私<br><small>Personal Data Protection &amp; Privacy</small></h3>
+<p>提交本表格即表示我知悉，DIY Plumbing课程主办方可根据马来西亚《2010年个人资料保护法令》（Act 709），收集、处理和储存我提供的个人资料，用于报名、付款、课程行政管理、沟通、证书、安全，以及其他与课程合理相关的用途。</p>
+<p>在上述用途合理需要的范围内，相关资料可能与参与课程筹办及授课的导师、场地、培训合作伙伴和服务供应商共享。除法律要求或取得适当同意外，资料不会披露给无关第三方。</p>
+<p>我可通过WhatsApp <a href="https://wa.me/60133083049">+6013-308-3049</a> 或电邮 <a href="mailto:purchasingpoweruser@gmail.com">purchasingpoweruser@gmail.com</a> 联系主办方，申请查阅或更正个人资料，或在适用情况下撤回同意。</p>
+<label class="radio-card consent-option"><input id="pdpa-ack" type="checkbox" name="PDPA Acknowledgement" value="I have read and understood the Personal Data Protection &amp; Privacy Notice" required><span>我已阅读并理解上述个人资料保护与隐私说明。*</span></label>
+</section>
+<section class="consent-section" aria-labelledby="permissions-heading"><h3 id="permissions-heading">可选授权</h3>
+<label class="radio-card consent-option"><input type="checkbox" name="Photo and Video Consent" value="I consent to identifiable photos and videos being used"><span>我同意课程期间拍摄、可辨认出我的照片或视频，用于活动记录、社交媒体和宣传用途。<span class="field-note">可选</span></span></label>
+<label class="radio-card consent-option"><input type="checkbox" name="Marketing Consent" value="I agree to receive future workshop and programme updates"><span>我同意通过WhatsApp、电邮或其他沟通渠道，接收未来DIY Plumbing工作坊、课程及相关项目的信息。<span class="field-note">可选</span></span></label>
+</section>
+<p class="privacy">可选授权并非报名条件；不勾选也可以参加课程。</p>
     <button class="btn" type="submit">提交报名并查看付款方式</button>
     <p id="form-error" role="alert"></p><p class="privacy">名额以核实到账及班次确认为准。开课前3天内不退款，可转让名额。</p>
     </form></section></div><noscript>请开启JavaScript，或WhatsApp联系Ronald：+60133083049。</noscript></main>

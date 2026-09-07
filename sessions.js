@@ -80,3 +80,6 @@ window.OCTOBER_SESSIONS = [
     "capacity": 12
   }
 ];
+
+// Temporary public booking window. Keep all sessions for existing payment references.
+window.OCTOBER_PUBLIC_DAYS = [3, 10];

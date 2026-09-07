@@ -18,3 +18,7 @@ The existing daily import automation maps new fields; it does not verify payment
 
 To change a session: update sessions.js, static date links/options, dashboard session rows,
 and import automation rules together. For price changes update tickets.js and static price cards.
+
+Temporary visibility update: only 3 and 10 October are shown and accepted by public registration.
+17/24/31 remain in sessions.js for existing payment references and in the internal tracker.
+To restore: extend OCTOBER_PUBLIC_DAYS and restore corresponding static date cards/options in both languages.

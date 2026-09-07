@@ -7,11 +7,12 @@
   tickets.forEach(t => { const o = document.createElement('option'); o.value=t.key; o.textContent=zh?({standard:'单人票 RM350／人',early:'早鸟票 RM280／人（须核实）',buddy:'双人同行 RM520／2人'}[t.key]):t.label; ticketInput.append(o); });
   document.getElementById('price-policy').textContent=window.OCTOBER_PRICE_POLICY[lang];
   if(tickets.some(t=>t.key===params.get('ticket'))) ticketInput.value=params.get('ticket');
-  let selected = window.OCTOBER_SESSIONS.find(s=>s.id===params.get('session') && s.id.endsWith(lang));
-  if(!selected && params.has('date')) selected=window.OCTOBER_SESSIONS.find(s=>s.day===Number(params.get('date').split('-')[0]) && s.id.endsWith(lang));
+  const publicSessions = window.OCTOBER_SESSIONS.filter(s => window.OCTOBER_PUBLIC_DAYS.includes(s.day));
+  let selected = publicSessions.find(s=>s.id===params.get('session') && s.id.endsWith(lang));
+  if(!selected && params.has('date')) selected=publicSessions.find(s=>s.day===Number(params.get('date').split('-')[0]) && s.id.endsWith(lang));
   if(selected) sessionInput.value=selected.id;
   let registrationId = 'REG-'+crypto.randomUUID();
-  const current = () => ({s:window.OCTOBER_SESSIONS.find(s=>s.id===sessionInput.value && s.id.endsWith(lang)),t:tickets.find(t=>t.key===ticketInput.value)});
+  const current = () => ({s:publicSessions.find(s=>s.id===sessionInput.value && s.id.endsWith(lang)),t:tickets.find(t=>t.key===ticketInput.value)});
   function update(){
     const {s,t}=current();buddy.required=t.seats===2;document.getElementById('buddy-field').hidden=t.seats!==2;
     document.getElementById('class-summary').textContent=s?`${s.date} · ${s.language} · ${s.time} MYT`: (zh?'请选择日期':'Choose a date');

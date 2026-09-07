@@ -267,140 +267,27 @@
       .radio-grid { grid-template-columns: 1fr; }
       .panel { padding: 22px; }
     }
+  [hidden] { display: none !important; }
   </style>
 </head>
-<body>
-  <main class="wrap">
-    <a class="back" href="index.html">← Back to workshop page</a>
-
-    <div class="page-grid">
-      <section class="panel">
-        <div class="eyebrow">Registration</div>
-        <h1>Reserve your DIY Plumbing seat.</h1>
-        <p>Enter your contact details, then continue straight to the RM350 payment instructions.</p>
-
-        <div class="facts">
-          <div class="fact"><span>Workshop</span> DIY Plumbing for Beginners</div>
-          <div class="fact"><span>Time</span> 9:00 AM – 1:00 PM</div>
-          <div class="fact"><span>Venue</span> Damansara Damai, Petaling Jaya</div>
-          <div class="fact"><span>Class size</span> Max 12 participants</div>
-        </div>
-
-        <div class="price-note">Workshop fee: RM350 per participant.</div>
-      </section>
-
-      <section class="panel">
-        <h2>Enter 3 details to continue</h2>
-        <p>Your RM350 workshop seat is already selected.</p>
-
-        <form action="https://formspree.io/f/mojbnpwl" method="POST">
-          <input type="hidden" name="_subject" value="New DIY Plumbing October Workshop Registration">
-          <input type="hidden" name="_next" value="https://ronald-tech888.github.io/diy-plumbing-rm350/thanks.html">
-          <input type="hidden" name="Lead Source" id="lead-source" value="direct-registration">
-          <input type="hidden" name="Ticket" value="Standard - RM350">
-          <input type="text" name="_gotcha" style="display:none">
-
-          <label>
-            Full Name *
-            <input name="Full Name" type="text" autocomplete="name" placeholder="e.g., Nur Aisyah Tan" required>
-          </label>
-
-          <label>
-            Email Address *
-            <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-          </label>
-
-          <label>
-            WhatsApp / Mobile Number *
-            <input name="WhatsApp / Mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="e.g., 013-308 3049" required pattern="^\+?[0-9\-\s]{8,20}$" title="Please enter a valid phone number">
-            <span class="field-note">Include country code if you are outside Malaysia.</span>
-          </label>
-
-          <label>
-            Choose your preferred workshop date *
-            <span class="field-note">Choose one Saturday session.</span>
-            <div class="radio-grid">
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="3 October 2026" required> 3 Oct 2026</label>
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="10 October 2026"> 10 Oct 2026</label>
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="17 October 2026"> 17 Oct 2026</label>
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="24 October 2026"> 24 Oct 2026</label>
-              <label class="radio-card"><input type="radio" name="Workshop Date" value="31 October 2026"> 31 Oct 2026</label>
-            </div>
-          </label>
-
-          <button class="btn" type="submit">Continue to RM350 Payment</button>
-          <p class="privacy">Next: Touch 'n Go or bank transfer details plus a one-tap WhatsApp slip button. Seats are confirmed after payment. Replacements are allowed; no refunds within 3 days of the workshop.</p>
-        </form>
-      </section>
-    </div>
-  </main>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const selectedDate = params.get('date');
-    const leadSource = params.get('source') || 'direct-registration';
-    document.getElementById('lead-source').value = leadSource;
-
-    const dateMap = {
-      '3-Oct': '3 October 2026',
-      '10-Oct': '10 October 2026',
-      '17-Oct': '17 October 2026',
-      '24-Oct': '24 October 2026',
-      '31-Oct': '31 October 2026'
-    };
-    if (dateMap[selectedDate]) {
-      const dateInput = document.querySelector('input[name="Workshop Date"][value="' + dateMap[selectedDate] + '"]');
-      if (dateInput) dateInput.checked = true;
-    }
-    if (!document.querySelector('input[name="Workshop Date"]:checked')) {
-      const defaultDate = document.querySelector('input[name="Workshop Date"][value="3 October 2026"]');
-      if (defaultDate) defaultDate.checked = true;
-    }
-
-    document.querySelector('form').addEventListener('submit', async function(event) {
-      event.preventDefault();
-
-      const form = event.currentTarget;
-      const button = form.querySelector('button[type="submit"]');
-      const originalText = button.textContent;
-      button.disabled = true;
-      button.textContent = 'Submitting...';
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          if (typeof fbq === 'function') {
-            fbq('track', 'Lead', {
-              content_name: 'DIY Plumbing Workshop October 2026',
-              content_category: 'Workshop',
-              value: 350,
-              currency: 'MYR'
-            });
-          }
-          if (typeof gtag === 'function') {
-            gtag('event', 'submit_registration', {
-              event_category: 'registration_form',
-              event_label: 'DIY Plumbing October 2026'
-            });
-          }
-          window.setTimeout(function() {
-            window.location.href = 'thanks.html';
-          }, 300);
-          return;
-        }
-
-        throw new Error('Form submission failed');
-      } catch (error) {
-        alert('Sorry, the form could not be submitted. Please try again, or WhatsApp +6013-308-3049.');
-        button.disabled = false;
-        button.textContent = originalText;
-      }
-    });
-  </script>
-</body>
-</html>
+<body data-language="EN"><main class="wrap"><a class="back" href="index.html">← Back to workshop</a>
+    <div class="page-grid"><section class="panel"><div class="eyebrow">DIY Plumbing Level 1</div><h1>Choose your October English class</h1><p>9:00 AM–1:00 PM · Maximum 12 participants per class</p>
+    <div class="facts"><div class="fact">Damansara Damai, Petaling Jaya</div><div class="fact" id="class-summary"></div></div>
+    <p>Mandarin classes: 2–6pm on the same dates. <a href="zh/register.html" id="switch-language">View Mandarin classes</a></p>
+    <p id="price-policy"></p><p>Submitting this form does not confirm payment or reserve a seat. Confirm availability and your ticket price with Ronald before paying.</p></section>
+    <section class="panel"><h2>Your registration details</h2>
+    <form action="https://formspree.io/f/mojbnpwl" method="POST">
+    <input type="hidden" name="_subject" value="New DIY Plumbing October Registration">
+    <input type="hidden" name="_next" value="https://ronald-tech888.github.io/diy-plumbing-rm350/thanks.html">
+    <input name="_gotcha" type="text" style="display:none" tabindex="-1" autocomplete="off">
+    <label>Full name *<input name="Full Name" autocomplete="name" required maxlength="120"></label>
+    <label>Email address *<input name="email" type="email" autocomplete="email" required></label>
+    <label>WhatsApp / Mobile *<input name="WhatsApp / Mobile" type="tel" autocomplete="tel" required pattern="[+0-9 ()\-]{8,24}"></label>
+    <label>Date *<select id="session" name="Session ID" required style="padding:14px;width:100%;font:inherit"><option value="">Choose a date</option><option value="L1-20261003-EN">3 October 2026</option><option value="L1-20261010-EN">10 October 2026</option><option value="L1-20261017-EN">17 October 2026</option><option value="L1-20261024-EN">24 October 2026</option><option value="L1-20261031-EN">31 October 2026</option></select></label>
+    <label>Ticket *<select id="ticket" name="Ticket" required style="padding:14px;width:100%;font:inherit"></select></label>
+    <label id="buddy-field" hidden>Buddy participant name *<input name="Buddy Participant" id="buddy-name" maxlength="120"></label>
+    <p id="order-summary" role="status"></p>
+    <button class="btn" type="submit">Submit registration & view payment details</button>
+    <p id="form-error" role="alert"></p><p class="privacy">Seats are confirmed after payment verification and session confirmation. Replacements are allowed; no refunds within 3 days of the workshop.</p>
+    </form></section></div><noscript>Please enable JavaScript or contact Ronald on WhatsApp: +60133083049.</noscript></main>
+    <script src="sessions.js"></script><script src="tickets.js"></script><script src="registration.js"></script></body></html>

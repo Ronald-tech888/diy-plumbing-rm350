@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>报名 | 9月12日家居水管维修实作课</title>
-  <meta name="description" content="报名参加2026年9月12日在 Damansara Damai 举行的零基础家居水管维修实作课。">
+  <title>报名 | 10月家居水管维修实作课</title>
+  <meta name="description" content="报名参加2026年10月在 Damansara Damai 举行的零基础家居水管维修实作课。">
   <!-- Meta Pixel Code: DIY Plumbing Mandarin September Meta Ads -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -18,7 +18,7 @@
     fbq('init', '1644467059955423');
     fbq('track', 'PageView');
     fbq('track', 'InitiateCheckout', {
-      content_name: 'DIY Plumbing Level 1 Mandarin - 12 September 2026',
+      content_name: 'DIY Plumbing Level 1 Mandarin - October 2026',
       content_category: 'Workshop',
       value: 280,
       currency: 'MYR'
@@ -267,113 +267,27 @@
       .radio-grid { grid-template-columns: 1fr; }
       .panel { padding: 22px; }
     }
+  [hidden] { display: none !important; }
   </style>
 </head>
-<body>
-  <main class="wrap">
-    <a class="back" href="index.html">← 返回课程页面</a>
-
-    <div class="page-grid">
-      <section class="panel">
-        <div class="eyebrow">报名</div>
-        <h1>预留你的家居水管维修课程名额</h1>
-        <p>填写联络资料后，即可查看 RM280（早鸟价）付款方式。</p>
-
-        <div class="facts">
-          <div class="fact"><span>课程</span> 零基础家居水管维修实作课</div>
-          <div class="fact"><span>日期</span> 2026年9月12日（星期六）</div>
-          <div class="fact"><span>时间</span> 上午9:00至下午1:00</div>
-          <div class="fact"><span>地点</span> Damansara Damai, Petaling Jaya</div>
-          <div class="fact"><span>人数</span> 最多12人</div>
-        </div>
-
-        <div class="price-note">课程费用：RM280（早鸟价）。</div>
-      </section>
-
-      <section class="panel">
-        <h2>填写3项资料即可继续</h2>
-        <p>RM280（早鸟价）课程名额与9月12日场次已为你选好。</p>
-
-        <form action="https://formspree.io/f/mojbnpwl" method="POST">
-          <input type="hidden" name="_subject" value="New Mandarin RM280 Registration - DIY Plumbing 12 September 2026">
-          <input type="hidden" name="_next" value="https://ronald-tech888.github.io/diy-plumbing-rm350/zh/thanks.html">
-          <input type="hidden" name="Lead Source" id="lead-source" value="mandarin-direct-registration">
-          <input type="hidden" name="Ticket" value="Early Bird - RM280">
-          <input type="hidden" name="Workshop Date" value="12 September 2026">
-          <input type="text" name="_gotcha" style="display:none">
-
-          <label>
-            姓名 *
-            <input name="Full Name" type="text" autocomplete="name" placeholder="例如：陈美玲" required>
-          </label>
-
-          <label>
-            电邮地址 *
-            <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-          </label>
-
-          <label>
-            WhatsApp / 手机号码 *
-            <input name="WhatsApp / Mobile" type="tel" inputmode="tel" autocomplete="tel" placeholder="例如：013-308 3049" required pattern="^\+?[0-9\-\s]{8,20}$" title="请输入有效的手机号码">
-            <span class="field-note">若使用马来西亚以外的号码，请加入国家区号。</span>
-          </label>
-
-          <button class="btn" type="submit">继续查看 RM280 付款方式</button>
-          <p class="privacy">下一步：查看 Touch 'n Go 或银行转账资料，并一键通过 WhatsApp 发送付款凭证。付款后才确认名额。课程开始前3天内不退款，但可转让名额。</p>
-        </form>
-      </section>
-    </div>
-  </main>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const leadSource = params.get('source') || 'mandarin-direct-registration';
-    document.getElementById('lead-source').value = 'mandarin-' + leadSource.replace(/^mandarin-/, '');
-
-    document.querySelector('form').addEventListener('submit', async function(event) {
-      event.preventDefault();
-
-      const form = event.currentTarget;
-      const button = form.querySelector('button[type="submit"]');
-      const originalText = button.textContent;
-      button.disabled = true;
-      button.textContent = '正在提交...';
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          if (typeof fbq === 'function') {
-            fbq('track', 'Lead', {
-              content_name: 'DIY Plumbing Level 1 Mandarin - 12 September 2026',
-              content_category: 'Workshop',
-              value: 280,
-              currency: 'MYR'
-            });
-          }
-          if (typeof gtag === 'function') {
-            gtag('event', 'submit_registration', {
-              event_category: 'registration_form',
-              event_label: 'DIY Plumbing Mandarin 12 September 2026'
-            });
-          }
-          window.setTimeout(function() {
-            window.location.href = 'thanks.html';
-          }, 300);
-          return;
-        }
-
-        throw new Error('Form submission failed');
-      } catch (error) {
-        alert('抱歉，表格无法提交。请再试一次，或 WhatsApp +6013-308-3049。');
-        button.disabled = false;
-        button.textContent = originalText;
-      }
-    });
-  </script>
-</body>
-</html>
+<body data-language="ZH"><main class="wrap"><a class="back" href="index.html">← 返回课程页面</a>
+    <div class="page-grid"><section class="panel"><div class="eyebrow">DIY Plumbing Level 1</div><h1>选择10月中文班</h1><p>下午2:00–6:00 · 每班最多12人</p>
+    <div class="facts"><div class="fact">Damansara Damai, Petaling Jaya</div><div class="fact" id="class-summary"></div></div>
+    <p>英文班：同日9am–1pm。 <a href="../register.html" id="switch-language">查看英文班</a></p>
+    <p id="price-policy"></p><p>提交报名不代表已付款或锁定名额。付款前请向Ronald核实余位及票价。</p></section>
+    <section class="panel"><h2>填写报名资料</h2>
+    <form action="https://formspree.io/f/mojbnpwl" method="POST">
+    <input type="hidden" name="_subject" value="New DIY Plumbing October Registration">
+    <input type="hidden" name="_next" value="https://ronald-tech888.github.io/diy-plumbing-rm350/zh/thanks.html">
+    <input name="_gotcha" type="text" style="display:none" tabindex="-1" autocomplete="off">
+    <label>姓名 *<input name="Full Name" autocomplete="name" required maxlength="120"></label>
+    <label>电邮地址 *<input name="email" type="email" autocomplete="email" required></label>
+    <label>WhatsApp / 手机号码 *<input name="WhatsApp / Mobile" type="tel" autocomplete="tel" required pattern="[+0-9 ()\-]{8,24}"></label>
+    <label>日期 *<select id="session" name="Session ID" required style="padding:14px;width:100%;font:inherit"><option value="">请选择日期</option><option value="L1-20261003-ZH">10月3日</option><option value="L1-20261010-ZH">10月10日</option><option value="L1-20261017-ZH">10月17日</option><option value="L1-20261024-ZH">10月24日</option><option value="L1-20261031-ZH">10月31日</option></select></label>
+    <label>票种 *<select id="ticket" name="Ticket" required style="padding:14px;width:100%;font:inherit"></select></label>
+    <label id="buddy-field" hidden>同伴姓名 *<input name="Buddy Participant" id="buddy-name" maxlength="120"></label>
+    <p id="order-summary" role="status"></p>
+    <button class="btn" type="submit">提交报名并查看付款方式</button>
+    <p id="form-error" role="alert"></p><p class="privacy">名额以核实到账及班次确认为准。开课前3天内不退款，可转让名额。</p>
+    </form></section></div><noscript>请开启JavaScript，或WhatsApp联系Ronald：+60133083049。</noscript></main>
+    <script src="../sessions.js"></script><script src="../tickets.js"></script><script src="../registration.js"></script></body></html>

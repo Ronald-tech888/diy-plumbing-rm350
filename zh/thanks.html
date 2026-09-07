@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>报名已收到 | 9月12日家居水管维修实作课</title>
-  <meta name="description" content="完成 RM280 付款并发送凭证，确认2026年9月12日家居水管维修实作课名额。">
+  <title>报名已收到 | 10月家居水管维修实作课</title>
+  <meta name="description" content="完成 RM280 付款并发送凭证，确认2026年10月家居水管维修实作课名额。">
 
   <!-- Meta Pixel Code: DIY Plumbing Mandarin September Meta Ads -->
   <script>
@@ -215,80 +215,16 @@
         grid-template-columns: 1fr;
       }
     }
+  [hidden] { display: none !important; }
   </style>
 </head>
-<body>
-  <main class="card">
-    <div class="icon">✓</div>
-    <h1>报名资料已收到</h1>
-    <p><strong>感谢你报名家居水管维修实作课。</strong> 请完成 RM280（早鸟价）付款以确认名额。</p>
-
-    <div class="payment">
-      <h2>支付 RM280</h2>
-      <p><strong>Touch 'n Go eWallet</strong> — Ong Soon Chong</p>
-      <p><strong>TNG ID / 手机号码：</strong> 133083049</p>
-      <p><strong>付款备注：</strong> 你的姓名 / 12 Sep</p>
-      <br>
-      <p><strong>银行转账</strong></p>
-      <p><strong>Hong Leong Bank (HLB)</strong></p>
-      <p><strong>账号：</strong> 04100099089</p>
-      <p><strong>户名：</strong> Ong Soon Chong</p>
-    </div>
-
-    <p><strong>请通过 WhatsApp 或电邮发送付款凭证，以确认名额：</strong></p>
-
-    <div class="pay-actions">
-      <a class="contact-card whatsapp js-payment-slip" href="https://wa.me/60133083049?text=%E4%BD%A0%E5%A5%BD%20Ronald%EF%BC%8C%E6%88%91%E5%B7%B2%E4%BB%98%E6%AC%BE%20RM280%20%E6%8A%A5%E5%90%8D9%E6%9C%8812%E6%97%A5%E7%9A%84%20DIY%20Plumbing%20Level%201%20%E8%AF%BE%E7%A8%8B%E3%80%82%E7%8E%B0%E5%9C%A8%E5%8F%91%E9%80%81%E4%BB%98%E6%AC%BE%E5%87%AD%E8%AF%81%E3%80%82" target="_blank" rel="noopener">WhatsApp 发送付款凭证</a>
-      <a class="contact-card email js-payment-slip" href="mailto:purchasingpoweruser@gmail.com?subject=RM280%20Payment%20Slip%20-%20DIY%20Plumbing%2012%20September%202026">电邮发送付款凭证</a>
-    </div>
-
-    <div class="urgent-note">
-      请在12小时内完成 RM280 付款。收到付款凭证后，名额才正式确认。
-    </div>
-
-    <div class="next">
-      <strong>课程提醒</strong>
-      <ol>
-        <li>零基础家居水管维修实作课。</li>
-        <li>2026年9月12日（星期六）· 上午9:00至下午1:00。</li>
-        <li>如有问题，请联系 +6013-308-3049。</li>
-      </ol>
-    </div>
-
-    <div class="btn-row">
-      <a class="btn btn-primary" href="index.html">返回课程页面</a>
-      <a class="btn btn-secondary" href="register.html?source=thank-you-page">提交另一份报名</a>
-    </div>
-  </main>
-
-  <script>
-    if (typeof fbq === 'function') {
-      fbq('trackCustom', 'PaymentInstructionsViewed', {
-        content_name: 'DIY Plumbing Level 1 Mandarin - 12 September 2026',
-        content_category: 'Workshop',
-        value: 280,
-        currency: 'MYR'
-      });
-    }
-    if (typeof gtag === 'function') {
-      gtag('event', 'view_payment_instructions', {
-        event_category: 'payment_handoff',
-        event_label: 'DIY Plumbing Mandarin 12 September 2026'
-      });
-    }
-
-    document.querySelectorAll('.js-payment-slip').forEach(function(link) {
-      link.addEventListener('click', function() {
-        if (typeof fbq === 'function') {
-          fbq('trackCustom', 'PaymentSlipIntent', {
-            content_name: 'DIY Plumbing Level 1 Mandarin - 12 September 2026',
-            content_category: 'Workshop',
-            value: 280,
-            currency: 'MYR'
-          });
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+<body data-language="ZH"><main class="card"><h1>报名与付款详情</h1>
+    <div id="booking-summary" role="status"></div>
+    <p>请先联系Ronald核实该班余位及票价，再付款；发送凭证并核实到账后才确认名额。</p>
+    <p><a class="btn btn-primary" id="availability-link" href="https://wa.me/60133083049">核实余位与票价</a></p>
+    <div class="payment" id="payment-panel" hidden><h2 id="payment-heading"></h2>
+    <p><strong>Touch 'n Go eWallet</strong> — Ong Soon Chong</p><p>TNG ID / Mobile: 133083049</p><br>
+    <p><strong>Hong Leong Bank (HLB)</strong></p><p>Account: 04100099089</p><p>Name: Ong Soon Chong</p><p id="payment-reference"></p></div>
+    <div class="pay-actions" id="slip-actions" hidden><a class="contact-card whatsapp" id="slip-link" target="_blank" rel="noopener">WhatsApp发送付款凭证</a><a class="contact-card email" id="email-link">电邮发送凭证</a></div>
+    <p>所有时间为马来西亚时间。</p><div class="btn-row"><a class="btn btn-secondary" href="register.html">选择班期／重新报名</a><a class="btn btn-secondary" href="index.html">返回课程页面</a></div></main>
+    <script src="../sessions.js"></script><script src="../tickets.js"></script><script src="../payment.js"></script></body></html>

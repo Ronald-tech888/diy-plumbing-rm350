@@ -215,80 +215,16 @@
         grid-template-columns: 1fr;
       }
     }
+  [hidden] { display: none !important; }
   </style>
 </head>
-<body>
-  <main class="card">
-    <div class="icon">✓</div>
-    <h1>Registration received.</h1>
-    <p><strong>Thank you for registering for the DIY Plumbing Workshop.</strong> Please complete payment now to secure your seat.</p>
-
-    <div class="payment">
-      <h2>Complete Your Payment</h2>
-      <p><strong>Touch 'n Go eWallet</strong> — Ong Soon Chong</p>
-      <p><strong>TNG ID / Mobile:</strong> 133083049</p>
-      <p><strong>Reference:</strong> DIY Plumbing Workshop</p>
-      <br>
-      <p><strong>Bank Transfer Option</strong></p>
-      <p><strong>Hong Leong Bank (HLB)</strong></p>
-      <p><strong>Account:</strong> 04100099089</p>
-      <p><strong>Name:</strong> Ong Soon Chong</p>
-    </div>
-
-    <p><strong>To confirm your seat, send your payment slip via WhatsApp or email:</strong></p>
-
-    <div class="pay-actions">
-      <a class="contact-card whatsapp js-payment-slip" href="https://wa.me/60133083049?text=Hi%20Ronald%2C%20I%27ve%20paid%20RM350%20for%20DIY%20Plumbing%20Level%201.%20I%27m%20attaching%20my%20payment%20slip%20now." target="_blank" rel="noopener">WhatsApp Payment Slip</a>
-      <a class="contact-card email js-payment-slip" href="mailto:purchasingpoweruser@gmail.com?subject=RM350%20Payment%20Slip%20-%20DIY%20Plumbing%20Level%201">Email Payment Slip</a>
-    </div>
-
-    <div class="urgent-note">
-      Please complete payment within 12 hours. Seats are confirmed only after payment slip is received.
-    </div>
-
-    <div class="next">
-      <strong>Workshop reminder</strong>
-      <ol>
-        <li>DIY Plumbing Workshop for Beginners.</li>
-        <li>Your selected Saturday session · 9:00 AM – 1:00 PM.</li>
-        <li>Questions? Contact +6013-308-3049.</li>
-      </ol>
-    </div>
-
-    <div class="btn-row">
-      <a class="btn btn-primary" href="index.html">Back to Workshop Page</a>
-      <a class="btn btn-secondary" href="register.html?source=thank-you-page">Submit Another Registration</a>
-    </div>
-  </main>
-
-  <script>
-    if (typeof fbq === 'function') {
-      fbq('trackCustom', 'PaymentInstructionsViewed', {
-        content_name: 'DIY Plumbing Workshop October 2026',
-        content_category: 'Workshop',
-        value: 350,
-        currency: 'MYR'
-      });
-    }
-    if (typeof gtag === 'function') {
-      gtag('event', 'view_payment_instructions', {
-        event_category: 'payment_handoff',
-        event_label: 'DIY Plumbing October 2026'
-      });
-    }
-
-    document.querySelectorAll('.js-payment-slip').forEach(function(link) {
-      link.addEventListener('click', function() {
-        if (typeof fbq === 'function') {
-          fbq('trackCustom', 'PaymentSlipIntent', {
-            content_name: 'DIY Plumbing Workshop October 2026',
-            content_category: 'Workshop',
-            value: 350,
-            currency: 'MYR'
-          });
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+<body data-language="EN"><main class="card"><h1>Registration & payment details</h1>
+    <div id="booking-summary" role="status"></div>
+    <p>Confirm session availability and ticket price with Ronald before paying. Your seat is confirmed after the payment is received and verified.</p>
+    <p><a class="btn btn-primary" id="availability-link" href="https://wa.me/60133083049">Confirm availability & price</a></p>
+    <div class="payment" id="payment-panel" hidden><h2 id="payment-heading"></h2>
+    <p><strong>Touch 'n Go eWallet</strong> — Ong Soon Chong</p><p>TNG ID / Mobile: 133083049</p><br>
+    <p><strong>Hong Leong Bank (HLB)</strong></p><p>Account: 04100099089</p><p>Name: Ong Soon Chong</p><p id="payment-reference"></p></div>
+    <div class="pay-actions" id="slip-actions" hidden><a class="contact-card whatsapp" id="slip-link" target="_blank" rel="noopener">Send payment slip on WhatsApp</a><a class="contact-card email" id="email-link">Email payment slip</a></div>
+    <p>All times are Malaysia time.</p><div class="btn-row"><a class="btn btn-secondary" href="register.html">Select session / new registration</a><a class="btn btn-secondary" href="index.html">Workshop page</a></div></main>
+    <script src="sessions.js"></script><script src="tickets.js"></script><script src="payment.js"></script></body></html>

@@ -1,5 +1,13 @@
 window.OCTOBER_SESSIONS = [
   {
+    "id": "L1-20260912-ZH",
+    "date": "2026-09-12",
+    "day": 12,
+    "language": "中文",
+    "time": "09:00–13:00",
+    "capacity": 12
+  },
+  {
     "id": "L1-20261003-EN",
     "date": "2026-10-03",
     "day": 3,
@@ -80,6 +88,5 @@ window.OCTOBER_SESSIONS = [
     "capacity": 12
   }
 ];
-
-// Temporary public booking window. Keep all sessions for existing payment references.
-window.OCTOBER_PUBLIC_DAYS = [3, 10];
+// Explicit dates prevent accidentally reopening hidden later October sessions.
+window.PUBLIC_SESSION_IDS = ["L1-20260912-ZH", "L1-20261003-EN", "L1-20261003-ZH", "L1-20261010-EN", "L1-20261010-ZH"];

@@ -7,9 +7,9 @@
   tickets.forEach(t => { const o = document.createElement('option'); o.value=t.key; o.textContent=zh?({standard:'单人票 RM350／人',early:'早鸟票 RM280／人（须核实）',buddy:'双人同行 RM520／2人'}[t.key]):t.label; ticketInput.append(o); });
   document.getElementById('price-policy').textContent=window.OCTOBER_PRICE_POLICY[lang];
   if(tickets.some(t=>t.key===params.get('ticket'))) ticketInput.value=params.get('ticket');
-  const publicSessions = window.OCTOBER_SESSIONS.filter(s => window.OCTOBER_PUBLIC_DAYS.includes(s.day));
+  const publicSessions = window.OCTOBER_SESSIONS.filter(s => window.PUBLIC_SESSION_IDS.includes(s.id));
   let selected = publicSessions.find(s=>s.id===params.get('session') && s.id.endsWith(lang));
-  if(!selected && params.has('date')) selected=publicSessions.find(s=>s.day===Number(params.get('date').split('-')[0]) && s.id.endsWith(lang));
+  if(!selected && params.has('date')) { const legacy=params.get('date'); selected=publicSessions.find(s=>legacy===`${s.day}-${s.date.slice(5,7)==='09'?'Sep':'Oct'}` && s.id.endsWith(lang)); }
   if(selected) sessionInput.value=selected.id;
   let registrationId = 'REG-'+crypto.randomUUID();
   const current = () => ({s:publicSessions.find(s=>s.id===sessionInput.value && s.id.endsWith(lang)),t:tickets.find(t=>t.key===ticketInput.value)});
@@ -18,7 +18,9 @@
     document.getElementById('class-summary').textContent=s?`${s.date} · ${s.language} · ${s.time} MYT`: (zh?'请选择日期':'Choose a date');
     document.getElementById('order-summary').textContent=`${t.label} · ${t.seats}${zh?'人':' participant(s)'} · RM${t.amount}`;
     const u=new URL(document.getElementById('switch-language').href);
-    if(s)u.searchParams.set('session',s.id.replace(/(EN|ZH)$/,zh?'EN':'ZH'));
+    u.searchParams.delete('session');
+    const other=s && publicSessions.find(x=>x.id===s.id.replace(/(EN|ZH)$/,zh?'EN':'ZH'));
+    if(other)u.searchParams.set('session',other.id);
     document.getElementById('switch-language').href=u.href;
   }
   sessionInput.addEventListener('change',update);ticketInput.addEventListener('change',update);update();
@@ -35,7 +37,9 @@
     data.set('Marketing Consent',form.elements['Marketing Consent'].checked?'Yes':'No');
     data.set('Privacy Notice Version','2026-09-07');
     data.set('Consent Recorded At',new Date().toISOString());
-    data.set('Ticket',t.label);data.set('Workshop Date',`${s.day} October 2026`);
+    const dateParts=s.date.split('-').map(Number);
+    const workshopDate=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(dateParts[0],dateParts[1]-1,dateParts[2])));
+    data.set('Ticket',t.label);data.set('Workshop Date',workshopDate);
     data.set('Class Language',s.language);data.set('Class Time MYT',s.time);data.set('Seats',String(t.seats));
     data.set('Amount Due RM',String(t.amount));data.set('Registration ID',registrationId);
     data.set('Lead Source',params.get('source')||`${lang.toLowerCase()}-direct`);

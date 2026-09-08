@@ -9,18 +9,28 @@
   document.getElementById('price-policy').textContent=window.OCTOBER_PRICE_POLICY[lang];
   if(tickets.some(t=>t.key===params.get('ticket'))) ticketInput.value=params.get('ticket');
   const publicSessions = window.OCTOBER_SESSIONS.filter(s => window.PUBLIC_SESSION_IDS.includes(s.id));
-  let selected = publicSessions.find(s=>s.id===params.get('session') && s.id.endsWith(lang));
+  let selected = publicSessions.find(s=>s.id===params.get('session'));
   if(!selected && params.has('date')) { const legacy=params.get('date'); selected=publicSessions.find(s=>legacy===`${s.day}-${s.date.slice(5,7)==='09'?'Sep':'Oct'}` && s.id.endsWith(lang)); }
+  sessionInput.replaceChildren(new Option(zh?'请选择班期':'Choose a session',''));
+  publicSessions.forEach(s=>sessionInput.add(new Option(`${s.date} · ${s.id.endsWith('ZH')?(zh?'中文班':'Mandarin class'):(zh?'英文班':'English class')} · ${s.time}`,s.id)));
   if(selected) sessionInput.value=selected.id;
+  const choices=document.getElementById('booking-choices'),edit=document.getElementById('edit-booking');
+  if(selected && tickets.some(t=>t.key===ticketInput.value)){
+    choices.hidden=true;edit.hidden=false;
+    document.querySelector('h1').textContent=zh?'完成课程报名':'Complete your registration';
+    document.querySelector('.booking-header > p').textContent=zh?'请核对以下班期与报价，再填写联络资料。':'Review your session and quote below, then enter your contact details.';
+  }
+  edit.addEventListener('click',()=>{choices.hidden=!choices.hidden;edit.setAttribute('aria-expanded',String(!choices.hidden));if(!choices.hidden)sessionInput.focus();});
+  try{const saved=JSON.parse(sessionStorage.getItem('booking-language-draft')||'null');sessionStorage.removeItem('booking-language-draft');if(saved){for(const [name,value] of Object.entries(saved)){const field=form.elements[name];if(field && !['hidden','checkbox'].includes(field.type))field.value=value;}}}catch{}
+  document.getElementById('switch-language').addEventListener('click',()=>{try{const draft={};for(const name of ['Full Name','email','WhatsApp / Mobile','Buddy Participant','Refer By'])draft[name]=form.elements[name].value;sessionStorage.setItem('booking-language-draft',JSON.stringify(draft));}catch{}});
   let registrationId = 'REG-'+crypto.randomUUID();
-  const current = () => ({s:publicSessions.find(s=>s.id===sessionInput.value && s.id.endsWith(lang)),t:tickets.find(t=>t.key===ticketInput.value)});
+  const current = () => ({s:publicSessions.find(s=>s.id===sessionInput.value),t:tickets.find(t=>t.key===ticketInput.value)});
   function update(){
     const {s,t}=current();buddy.required=t?.seats===2;document.getElementById('buddy-field').hidden=t?.seats!==2;
     window.renderBookingSummary(document.getElementById('order-summary'),s,t,zh);
     const u=new URL(document.getElementById('switch-language').href);
     u.searchParams.delete('session');
-    const other=s && publicSessions.find(x=>x.id===s.id.replace(/(EN|ZH)$/,zh?'EN':'ZH'));
-    if(other)u.searchParams.set('session',other.id);
+    if(s)u.searchParams.set('session',s.id);
     u.searchParams.delete('ticket');if(t)u.searchParams.set('ticket',t.key);
     for(const key of ['source','utm_source','utm_medium','utm_campaign','utm_content','fbclid'])if(params.has(key))u.searchParams.set(key,params.get(key));
     document.getElementById('switch-language').href=u.href;
@@ -57,6 +67,7 @@
       if(!response.ok)throw new Error('Submission failed');
       // Never emit Purchase: a successful registration is not verified payment.
       try{if(typeof fbq==='function')fbq('track','Lead',{content_name:s.id,content_category:'Workshop',value:t.amount,currency:'MYR'});}catch{}
+      try{sessionStorage.setItem('submitted-'+registrationId,'yes');}catch{}
       location.href=destination.href;
     }catch{
       document.getElementById('form-error').textContent=zh?'未能确认提交成功，请重试或WhatsApp联系Ronald：+60133083049。':'Could not confirm submission. Retry or WhatsApp Ronald: +60133083049.';

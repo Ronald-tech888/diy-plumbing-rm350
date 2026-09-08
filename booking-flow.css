@@ -32,3 +32,8 @@
 .payment-page #slip-link{width:100%;text-align:center;font-size:16px}.payment-page .email-backup{text-align:center;margin-top:14px}
 .payment-page .timezone-note{font-size:12px}.payment-page .btn-row{justify-content:space-between;margin-top:16px;gap:14px}
 @media(max-width:520px){.choice-grid{grid-template-columns:1fr}.registration-page .panel{padding:18px}.payment-page .card{padding:20px}.order-summary{padding:14px}.order-summary dl{gap:10px 12px}.order-summary dd{font-size:14px}}
+
+.page-language{font-size:14px;margin:10px 0 16px}.page-language a{color:#0b4f89;text-decoration:underline}
+.booking-progress{list-style:none;padding:0;display:flex;gap:8px;margin:0 0 20px;font-size:13px;color:#526575}.booking-progress li{flex:1;padding:10px 7px;background:#f1f4f7;border-radius:8px;text-align:center}.booking-progress [aria-current=step]{background:#dceefa;color:#084b7c;font-weight:700}
+.registration-page .edit-booking{justify-self:start;border:0;background:none;color:#0b4f89;text-decoration:underline;padding:10px 0;min-height:44px;font:inherit;cursor:pointer}
+.registration-status{padding:14px;background:#edf7f1;border:1px solid #c7e4d1;border-radius:10px;color:#205538}

@@ -12,9 +12,7 @@
   document.getElementById('payment-content').hidden=false;
   document.getElementById('payment-heading').textContent=zh?`应付总额 RM${t.amount}`:`Total due RM${t.amount}`;
   document.getElementById('payment-reference').textContent=s.id+' / '+reg.slice(-8);
-  const inquiry=(zh?'你好Ronald，请核实我的班次余位及票价：':'Hi Ronald, please confirm availability and price for: ')+details+'; '+reg;
   const slip=(zh?'你好Ronald，这是我的付款凭证，请核对到账及班次：':'Hi Ronald, here is my payment slip. Please verify receipt and session: ')+details+'; '+reg;
-  document.getElementById('availability-link').href='https://wa.me/60133083049?text='+encodeURIComponent(inquiry);
   document.getElementById('slip-link').href='https://wa.me/60133083049?text='+encodeURIComponent(slip);
   document.getElementById('email-link').href='mailto:purchasingpoweruser@gmail.com?subject='+encodeURIComponent('Payment slip '+s.id+' '+reg)+'&body='+encodeURIComponent(slip);
   document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{

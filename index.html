@@ -529,6 +529,11 @@
       h1 { font-size: 42px; }
     }
   [hidden] { display: none !important; }
+
+    .buddy-fee{display:block;margin-top:4px}
+    .learning-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .amount small{font-size:clamp(16px,2vw,20px);font-weight:600;white-space:nowrap}
+    @media(max-width:980px){.learning-cards{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -542,7 +547,7 @@
         <p class="lead">Small hands-on class. Max 12 pax. Learn basic leaks, clogs, taps, and pipe fixes with 25+ years experienced trainer Desmond.</p>
 
         <div class="quick-facts">
-          <div class="fact"><span>Workshop Fee</span> RM350 · Early Bird RM280 · Buddy RM520/2</div>
+          <div class="fact"><span>Workshop Fee</span> RM350 · Early Bird RM280<div class="buddy-fee">Buddy RM520 / 2 people</div></div>
           <div class="fact"><span>Date</span> Saturdays in October 2026</div>
           <div class="fact"><span>Time</span> 9:00 AM–1:00 PM · English</div>
           <div class="fact"><span>Seats</span> Max 12 pax only</div>
@@ -578,24 +583,16 @@
         <p class="sub">This is not a lecture. You will touch the tools, practice the steps, and learn what to check first before calling a plumber.</p>
       </div>
 
-      <div class="cards">
+      <div class="cards learning-cards">
         <div class="card">
-          <h3>You will learn</h3>
+          <h3>You will learn &amp; practice</h3>
           <ul class="tick-list">
-            <li>How to shut off water safely</li>
-            <li>How to replace flexible hoses</li>
-            <li>How to use PTFE tape correctly</li>
-            <li>How to clear common trap blockages</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>You will practice</h3>
-          <ul class="tick-list">
-            <li>Basic tool handling</li>
-            <li>Leak checking and troubleshooting</li>
-            <li>Flexible hose replacement</li>
-            <li>Floor trap and P-trap cleaning</li>
+            <li>Shut off water safely</li>
+            <li>Handle basic plumbing tools</li>
+            <li>Check leaks and troubleshoot problems</li>
+            <li>Replace flexible hoses</li>
+            <li>Use PTFE tape correctly</li>
+            <li>Clean floor traps and P-traps</li>
           </ul>
         </div>
 
@@ -655,12 +652,12 @@
       <div class="dates">
         <a class="date-card js-register" href="register.html?source=date-card&amp;session=L1-20261003-EN">3 Oct <span>Saturday</span></a>
         <a class="date-card js-register" href="register.html?source=date-card&amp;session=L1-20261010-EN">10 Oct <span>Saturday</span></a>
-        
-        
-        
+
+
+
       </div>
 
-      <div class="price-grid"><div class="price"><h3>Standard</h3><div class="amount">RM350</div><p>1 participant</p><a class="btn btn-primary js-register" href="register.html?ticket=standard&amp;source=pricing-standard">Choose session</a></div><div class="price"><h3>Early Bird</h3><div class="amount">RM280</div><p>5 early-bird seats per class; confirm before payment</p><a class="btn btn-primary js-register" href="register.html?ticket=early&amp;source=pricing-early">Choose session</a></div><div class="price"><h3>Buddy Pass</h3><div class="amount">RM520</div><p>2 people in the same date and language class</p><a class="btn btn-primary js-register" href="register.html?ticket=buddy&amp;source=pricing-buddy">Choose session</a></div></div>
+      <div class="price-grid"><div class="price"><h3>Standard</h3><div class="amount">RM350 <small>/ person</small></div><p>1 participant</p><a class="btn btn-primary js-register" href="register.html?ticket=standard&amp;source=pricing-standard">Choose session</a></div><div class="price"><h3>Early Bird</h3><div class="amount">RM280 <small>/ person</small></div><p>Price per person. Limited to 5 early-bird places per class.</p><a class="btn btn-primary js-register" href="register.html?ticket=early&amp;source=pricing-early">Choose session</a></div><div class="price"><h3>Buddy Pass</h3><div class="amount">RM520 <small>/ 2 people</small></div><p>2 people in the same date and language class</p><a class="btn btn-primary js-register" href="register.html?ticket=buddy&amp;source=pricing-buddy">Choose session</a></div></div>
 
       <div class="price-note">Maximum 12 participants per class. Offers cannot be combined. Confirm availability and price before paying; seats are confirmed after payment verification.</div>
     </div>

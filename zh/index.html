@@ -530,6 +530,11 @@
       h1 { font-size: 42px; }
     }
   [hidden] { display: none !important; }
+
+    .buddy-fee{display:block;margin-top:4px}
+    .learning-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .amount small{font-size:clamp(16px,2vw,20px);font-weight:600;white-space:nowrap}
+    @media(max-width:980px){.learning-cards{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -543,7 +548,7 @@
         <p class="lead">最多12人的小班实作课。跟随拥有25年以上经验的 Desmond 老师，亲手学习处理漏水、堵塞、水龙头和水管问题。</p>
 
         <div class="quick-facts">
-          <div class="fact"><span>课程费用</span> 单人RM350 · 早鸟RM280 · 双人RM520</div>
+          <div class="fact"><span>课程费用</span> 单人RM350 · 早鸟RM280<div class="buddy-fee">双人 RM520 / 2人</div></div>
           <div class="fact"><span>日期</span> 2026年9月12日；10月3、10日</div>
           <div class="fact"><span>时间</span> 9月12日：上午9am–1pm；10月班：下午2pm–6pm</div>
           <div class="fact"><span>名额</span> 最多12人</div>
@@ -579,23 +584,15 @@
         <p class="sub">这不是只听不做的讲座。你会亲手使用工具、练习步骤，并学会在找水管工之前先检查什么。</p>
       </div>
 
-      <div class="cards">
+      <div class="cards learning-cards">
         <div class="card">
-          <h3>你将学会</h3>
+          <h3>你将学会并亲手练习</h3>
           <ul class="tick-list">
-            <li>如何安全关闭水源</li>
-            <li>如何更换软管</li>
-            <li>如何正确使用 PTFE 生料带</li>
-            <li>如何清理常见的存水弯堵塞</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>你将亲手练习</h3>
-          <ul class="tick-list">
-            <li>基本工具的正确使用方法</li>
+            <li>安全关闭水源</li>
+            <li>正确使用基本工具</li>
             <li>检查漏水与排查问题</li>
             <li>更换水龙头连接软管</li>
+            <li>正确使用 PTFE 生料带</li>
             <li>清理地漏与 P 型存水弯</li>
           </ul>
         </div>
@@ -659,7 +656,7 @@
 
 </div>
 
-      <div class="price-grid"><div class="price"><h3>单人票</h3><div class="amount">RM350</div><p>1位参加者</p><a class="btn btn-primary js-register" href="register.html?ticket=standard&amp;source=pricing-standard">选择班期</a></div><div class="price"><h3>早鸟票</h3><div class="amount">RM280</div><p>每班限5个早鸟席位，付款前核实</p><a class="btn btn-primary js-register" href="register.html?ticket=early&amp;source=pricing-early">选择班期</a></div><div class="price"><h3>双人同行</h3><div class="amount">RM520</div><p>2人同一日期、同一语言班</p><a class="btn btn-primary js-register" href="register.html?ticket=buddy&amp;source=pricing-buddy">选择班期</a></div></div>
+      <div class="price-grid"><div class="price"><h3>单人票</h3><div class="amount">RM350 <small>/ 人</small></div><p>1位参加者</p><a class="btn btn-primary js-register" href="register.html?ticket=standard&amp;source=pricing-standard">选择班期</a></div><div class="price"><h3>早鸟票</h3><div class="amount">RM280 <small>/ 人</small></div><p>以上为每人价格，每班限5个早鸟名额。</p><a class="btn btn-primary js-register" href="register.html?ticket=early&amp;source=pricing-early">选择班期</a></div><div class="price"><h3>双人同行</h3><div class="amount">RM520 <small>/ 2人</small></div><p>2人同一日期、同一语言班</p><a class="btn btn-primary js-register" href="register.html?ticket=buddy&amp;source=pricing-buddy">选择班期</a></div></div>
 
       <div class="price-note">每班最多12人。优惠不叠加；付款前核实余位与适用票价，核实到账后才确认名额。</div>
     </div>

@@ -217,14 +217,13 @@
     }
   [hidden] { display: none !important; }
   </style>
+<link rel="stylesheet" href="booking-flow.css">
 </head>
-<body data-language="EN"><main class="card"><h1>Registration & payment details</h1>
-    <div id="booking-summary" role="status"></div>
-    <p>Confirm session availability and ticket price with Ronald before paying. Your seat is confirmed after the payment is received and verified.</p>
-    <p><a class="btn btn-primary" id="availability-link" href="https://wa.me/60133083049">Confirm availability & price</a></p>
-    <div class="payment" id="payment-panel" hidden><h2 id="payment-heading"></h2>
-    <p><strong>Touch 'n Go eWallet</strong> — Ong Soon Chong</p><p>TNG ID / Mobile: 133083049</p><br>
-    <p><strong>Hong Leong Bank (HLB)</strong></p><p>Account: 04100099089</p><p>Name: Ong Soon Chong</p><p id="payment-reference"></p></div>
-    <div class="pay-actions" id="slip-actions" hidden><a class="contact-card whatsapp" id="slip-link" target="_blank" rel="noopener">Send payment slip on WhatsApp</a><a class="contact-card email" id="email-link">Email payment slip</a></div>
-    <p>All times are Malaysia time.</p><div class="btn-row"><a class="btn btn-secondary" href="register.html">Select session / new registration</a><a class="btn btn-secondary" href="index.html">Workshop page</a></div></main>
-    <script src="sessions.js"></script><script src="tickets.js"></script><script src="payment.js"></script></body></html>
+<body data-language="EN" class="payment-page"><main class="card"><div class="eyebrow">DIY Plumbing Level 1</div><h1>Payment & Seat Confirmation</h1><div id="booking-summary" class="order-summary" role="status"></div><p id="booking-id" class="short-id"></p><div id="payment-content" hidden>
+ <section class="payment-step"><h2>1. Confirm your session & price</h2><p>If Ronald has confirmed your session and quote, proceed to payment. Otherwise, check first. Your seat is secured only after payment and session verification.</p><a class="quiet-link" id="availability-link" href="https://wa.me/60133083049">Check availability & price on WhatsApp</a></section>
+ <section class="payment-step" id="payment-panel"><h2>2. Make your payment</h2><p id="payment-heading" class="payment-total"></p>
+ <div class="payment-method"><h3>Hong Leong Bank (HLB)</h3><p>Ong Soon Chong</p><div class="copy-row"><span id="bank-account" class="copy-value">04100099089</span><button type="button" data-copy="bank-account" aria-label="Copy bank account number">Copy</button></div></div>
+ <div class="payment-method"><h3>Touch 'n Go eWallet</h3><p>Ong Soon Chong · Mobile / TNG ID</p><div class="copy-row"><span id="tng-account" class="copy-value">133083049</span><button type="button" data-copy="tng-account" aria-label="Copy TNG number">Copy</button></div></div>
+ <p class="reference-label">Payment reference</p><div class="copy-row"><span id="payment-reference" class="copy-value"></span><button type="button" data-copy="payment-reference" aria-label="Copy payment reference">Copy</button></div><p id="copy-status" role="status" aria-live="polite"></p><input id="copy-fallback" readonly hidden aria-label="Select and copy this value"></section>
+ <section class="payment-step" id="slip-actions"><h2>3. Send your payment slip</h2><p>After paying, send a clear copy of your payment slip for verification.</p><a class="btn btn-primary" id="slip-link" target="_blank" rel="noopener">Send Payment Slip on WhatsApp</a><p class="email-backup"><a id="email-link">Or send by email</a></p></section></div>
+ <p class="timezone-note">All times are Malaysia time.</p><div class="btn-row"><a class="quiet-link" href="register.html">Select session / new registration</a><a class="quiet-link" href="index.html">Workshop page</a></div></main><script src="sessions.js"></script><script src="tickets.js"></script><script src="booking-display.js"></script><script src="payment.js"></script></body></html>

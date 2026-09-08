@@ -1,0 +1,34 @@
+[hidden]{display:none!important}
+.registration-page .wrap{width:min(740px,calc(100% - 28px));padding:20px 0 36px}
+.registration-page .back{margin-bottom:14px;font-size:14px}
+.registration-page .panel{padding:24px}
+.registration-page h1,.payment-page h1{font-size:clamp(27px,5vw,38px);line-height:1.2;letter-spacing:-.025em;margin:0 0 10px}
+.booking-header{margin-bottom:20px}.booking-header p{margin-bottom:8px}
+.booking-header .eyebrow,.payment-page .eyebrow{font-size:11px;padding:5px 9px;margin-bottom:10px}
+.location-line{font-size:13px}.location-line a{color:#0b4f89}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.registration-page form{gap:14px}.registration-page input,.registration-page select{font-size:16px}
+.registration-page select{min-width:0;max-width:100%}.registration-page label{font-size:14px;min-width:0}
+.order-summary{background:#eef6fb;border:1px solid #c8deef;border-radius:14px;padding:16px;text-align:left}
+.order-summary dl{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;margin:0}
+.order-summary dt{font-size:12px;color:#526575;margin-bottom:3px}.order-summary dd{margin:0;font-size:15px;font-weight:700;color:#12344d;overflow-wrap:anywhere}
+.order-summary .order-total{border-top:1px solid #c8deef;margin-top:12px;padding-top:12px;display:flex;justify-content:space-between;align-items:center;gap:12px;color:#12344d}
+.order-total strong{font-size:25px;white-space:nowrap}.order-total span{font-size:13px}
+.price-disclosure{font-size:13px;color:#526575}.price-disclosure p{margin:10px 0 0;font-size:13px}
+.registration-page summary{cursor:pointer;color:#0b4f89;font-weight:650;padding:4px 0}
+.registration-page .consent-section{gap:10px;padding:14px}.registration-page .consent-section h3{font-size:16px}
+.registration-page .consent-section p{font-size:13px;line-height:1.6}.registration-page .consent-option{padding:10px;font-size:13px;gap:10px}
+.registration-page #privacy-details p{margin-top:12px}.registration-page .consent-option input{flex-shrink:0}
+.registration-page .btn{width:100%;font-size:16px;padding:16px 12px}.registration-page .privacy{font-size:12px}
+.payment-page{padding:20px 14px;display:block}.payment-page .card{max-width:700px;margin:0 auto;padding:26px;text-align:left}
+.payment-page p{font-size:14px;margin:0 0 12px;max-width:none}.payment-page h2{font-size:20px;margin:0 0 10px}
+.payment-page h3{font-size:16px;margin:0 0 6px}.payment-page .short-id{font-size:12px;margin:10px 0 20px;color:#667582}
+.payment-step{border-top:1px solid #dce6ee;padding:22px 0}.payment-step .quiet-link,.email-backup a,.btn-row .quiet-link{color:#0b4f89;text-decoration:underline;font-size:14px}
+.payment-method{padding:14px;border:1px solid #dce6ee;border-radius:12px;margin-bottom:14px;background:#fafcfe}
+.copy-row{display:flex;gap:12px;align-items:center;justify-content:space-between}.copy-value{font-size:17px;font-weight:700;overflow-wrap:anywhere;min-width:0}
+.copy-row button{background:white;color:#0b4f89;border:1px solid #b6cddd;border-radius:8px;font:inherit;font-size:13px;padding:10px 14px;min-height:44px;cursor:pointer;flex-shrink:0}
+.payment-page #payment-heading{font-size:25px;font-weight:800;color:#12344d}.payment-page #payment-reference{font-size:13px}
+.payment-page #copy-status{font-size:13px;margin-top:10px;color:#145d40}.payment-page #copy-fallback{width:100%;padding:12px;font-size:14px}
+.payment-page #slip-link{width:100%;text-align:center;font-size:16px}.payment-page .email-backup{text-align:center;margin-top:14px}
+.payment-page .timezone-note{font-size:12px}.payment-page .btn-row{justify-content:space-between;margin-top:16px;gap:14px}
+@media(max-width:520px){.choice-grid{grid-template-columns:1fr}.registration-page .panel{padding:18px}.payment-page .card{padding:20px}.order-summary{padding:14px}.order-summary dl{gap:10px 12px}.order-summary dd{font-size:14px}}

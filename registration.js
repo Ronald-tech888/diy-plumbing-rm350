@@ -4,6 +4,7 @@
   const form = document.querySelector('form'), sessionInput = document.getElementById('session');
   const ticketInput = document.getElementById('ticket'), buddy = document.getElementById('buddy-name');
   const tickets = window.OCTOBER_TICKETS[lang], params = new URLSearchParams(location.search);
+  const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent=zh?'请选择票种':'Choose a ticket';ticketInput.append(placeholder);
   tickets.forEach(t => { const o = document.createElement('option'); o.value=t.key; o.textContent=zh?({standard:'单人票 RM350／人',early:'早鸟票 RM280／人（须核实）',buddy:'双人同行 RM520／2人'}[t.key]):t.label; ticketInput.append(o); });
   document.getElementById('price-policy').textContent=window.OCTOBER_PRICE_POLICY[lang];
   if(tickets.some(t=>t.key===params.get('ticket'))) ticketInput.value=params.get('ticket');
@@ -14,13 +15,14 @@
   let registrationId = 'REG-'+crypto.randomUUID();
   const current = () => ({s:publicSessions.find(s=>s.id===sessionInput.value && s.id.endsWith(lang)),t:tickets.find(t=>t.key===ticketInput.value)});
   function update(){
-    const {s,t}=current();buddy.required=t.seats===2;document.getElementById('buddy-field').hidden=t.seats!==2;
-    document.getElementById('class-summary').textContent=s?`${s.date} · ${s.language} · ${s.time} MYT`: (zh?'请选择日期':'Choose a date');
-    document.getElementById('order-summary').textContent=`${t.label} · ${t.seats}${zh?'人':' participant(s)'} · RM${t.amount}`;
+    const {s,t}=current();buddy.required=t?.seats===2;document.getElementById('buddy-field').hidden=t?.seats!==2;
+    window.renderBookingSummary(document.getElementById('order-summary'),s,t,zh);
     const u=new URL(document.getElementById('switch-language').href);
     u.searchParams.delete('session');
     const other=s && publicSessions.find(x=>x.id===s.id.replace(/(EN|ZH)$/,zh?'EN':'ZH'));
     if(other)u.searchParams.set('session',other.id);
+    u.searchParams.delete('ticket');if(t)u.searchParams.set('ticket',t.key);
+    for(const key of ['source','utm_source','utm_medium','utm_campaign','utm_content','fbclid'])if(params.has(key))u.searchParams.set(key,params.get(key));
     document.getElementById('switch-language').href=u.href;
   }
   sessionInput.addEventListener('change',update);ticketInput.addEventListener('change',update);update();

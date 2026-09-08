@@ -36,6 +36,7 @@
     document.getElementById('switch-language').href=u.href;
   }
   sessionInput.addEventListener('change',update);ticketInput.addEventListener('change',update);update();
+  window.bookingMemory.show(document.getElementById('payment-resume'),zh);
   let submitting=false;
   form.addEventListener('submit',async event=>{
     event.preventDefault();if(submitting||!form.reportValidity())return;

@@ -37,3 +37,14 @@
 .booking-progress{list-style:none;padding:0;display:flex;gap:8px;margin:0 0 20px;font-size:13px;color:#526575}.booking-progress li{flex:1;padding:10px 7px;background:#f1f4f7;border-radius:8px;text-align:center}.booking-progress [aria-current=step]{background:#dceefa;color:#084b7c;font-weight:700}
 .registration-page .edit-booking{justify-self:start;border:0;background:none;color:#0b4f89;text-decoration:underline;padding:10px 0;min-height:44px;font:inherit;cursor:pointer}
 .registration-status{padding:14px;background:#edf7f1;border:1px solid #c7e4d1;border-radius:10px;color:#205538}
+
+/* Keep emphasis on the booking summary and the primary action. */
+.registration-page .panel{box-shadow:0 4px 18px rgba(20,50,75,.06)}
+.registration-page label{font-weight:400}.registration-page input,.registration-page select{font-weight:400}
+.registration-page h1,.payment-page h1{font-weight:750}.registration-page .btn,.payment-page .btn{font-weight:700;box-shadow:none}
+.registration-page .consent-section{background:transparent;border:0;border-top:1px solid #dce6ee;border-radius:0;padding:16px 0 0}
+.registration-page .consent-section h3{font-weight:600}.registration-page .consent-option{border:0;border-radius:0;padding:8px 0;background:transparent;box-shadow:none}
+.registration-page .optional-permissions{gap:6px}.registration-page .optional-permissions .field-note{font-size:12px;color:#526575}
+.payment-resume{padding:14px;border:1px solid #c8deef;border-radius:10px;background:#f4f9fc;margin:0 0 20px;font-size:14px;line-height:1.6}
+.payment-resume a{display:block;color:#0b4f89;font-weight:600;padding-top:8px}.payment-resume p{margin:0;font-size:13px}
+.save-payment{margin:12px 0 20px;font-size:13px}.payment-page .return-note{color:#526575}

@@ -9,10 +9,20 @@
   document.getElementById('price-policy').textContent=window.OCTOBER_PRICE_POLICY[lang];
   if(tickets.some(t=>t.key===params.get('ticket'))) ticketInput.value=params.get('ticket');
   const publicSessions = window.OCTOBER_SESSIONS.filter(s => window.PUBLIC_SESSION_IDS.includes(s.id));
-  let selected = publicSessions.find(s=>s.id===params.get('session'));
-  if(!selected && params.has('date')) { const legacy=params.get('date'); selected=publicSessions.find(s=>legacy===`${s.day}-${s.date.slice(5,7)==='09'?'Sep':'Oct'}` && s.id.endsWith(lang)); }
+  const soldOut = window.SOLD_OUT_SESSION_IDS || [];
+  const availableSessions = publicSessions.filter(s=>!soldOut.includes(s.id));
+  let selected = availableSessions.find(s=>s.id===params.get('session'));
+  if(!selected && params.has('date')) { const legacy=params.get('date'); selected=availableSessions.find(s=>legacy===`${s.day}-${s.date.slice(5,7)==='09'?'Sep':'Oct'}` && s.id.endsWith(lang)); }
   sessionInput.replaceChildren(new Option(zh?'请选择班期':'Choose a session',''));
-  publicSessions.forEach(s=>sessionInput.add(new Option(`${s.date} · ${s.id.endsWith('ZH')?(zh?'中文班':'Mandarin class'):(zh?'英文班':'English class')} · ${s.time}`,s.id)));
+  publicSessions.forEach(s=>{
+    const full=soldOut.includes(s.id);
+    const option=new Option(`${s.date} · ${s.id.endsWith('ZH')?(zh?'中文班':'Mandarin class'):(zh?'英文班':'English class')} · ${s.time}${full?(zh?' · 已满 Full':' · Full'):''}`,s.id);
+    option.disabled=full;sessionInput.add(option);
+  });
+  if(soldOut.includes(params.get('session'))||params.get('date')==='3-Oct'){
+    const note=document.createElement('p');note.setAttribute('role','status');note.textContent=zh?'10月3日已满（Full），请选择其他班期。':'3 October is full. Please choose another session.';
+    document.getElementById('booking-choices').before(note);
+  }
   if(selected) sessionInput.value=selected.id;
   const choices=document.getElementById('booking-choices'),edit=document.getElementById('edit-booking');
   if(selected && tickets.some(t=>t.key===ticketInput.value)){
@@ -24,7 +34,7 @@
   try{const saved=JSON.parse(sessionStorage.getItem('booking-language-draft')||'null');sessionStorage.removeItem('booking-language-draft');if(saved){for(const [name,value] of Object.entries(saved)){const field=form.elements[name];if(field && !['hidden','checkbox'].includes(field.type))field.value=value;}}}catch{}
   document.getElementById('switch-language').addEventListener('click',()=>{try{const draft={};for(const name of ['Full Name','email','WhatsApp / Mobile','Buddy Participant','Refer By'])draft[name]=form.elements[name].value;sessionStorage.setItem('booking-language-draft',JSON.stringify(draft));}catch{}});
   let registrationId = 'REG-'+crypto.randomUUID();
-  const current = () => ({s:publicSessions.find(s=>s.id===sessionInput.value),t:tickets.find(t=>t.key===ticketInput.value)});
+  const current = () => ({s:availableSessions.find(s=>s.id===sessionInput.value),t:tickets.find(t=>t.key===ticketInput.value)});
   function update(){
     const {s,t}=current();buddy.required=t?.seats===2;document.getElementById('buddy-field').hidden=t?.seats!==2;
     window.renderBookingSummary(document.getElementById('order-summary'),s,t,zh);

@@ -90,3 +90,5 @@ window.OCTOBER_SESSIONS = [
 ];
 // Explicit dates prevent accidentally reopening hidden later October sessions.
 window.PUBLIC_SESSION_IDS = ["L1-20261003-EN", "L1-20261003-ZH", "L1-20261010-EN", "L1-20261010-ZH", "L1-20261017-EN", "L1-20261017-ZH"];
+
+window.SOLD_OUT_SESSION_IDS = ["L1-20261003-EN", "L1-20261003-ZH"];

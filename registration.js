@@ -20,7 +20,7 @@
     option.disabled=full;sessionInput.add(option);
   });
   if(soldOut.includes(params.get('session'))||params.get('date')==='3-Oct'){
-    const note=document.createElement('p');note.setAttribute('role','status');note.textContent=zh?'10月3日已满（Full），请选择其他班期。':'3 October is full. Please choose another session.';
+    const note=document.createElement('p');note.setAttribute('role','status');note.textContent=zh?'10月3日报名已关闭，请选择其他班期。':'Registration for 3 October is closed. Please choose another session.';
     document.getElementById('booking-choices').before(note);
   }
   if(selected) sessionInput.value=selected.id;

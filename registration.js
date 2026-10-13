@@ -2,8 +2,19 @@
   'use strict';
   const lang = document.body.dataset.language, zh = lang === 'ZH';
   const form = document.querySelector('form'), sessionInput = document.getElementById('session');
+  if(zh){
+    form.hidden=true;
+    document.querySelector('h1').textContent='中文班暂停报名';
+    document.querySelector('.booking-header > p').textContent='所有中文班暂时关闭新报名。已报名学员仍可使用原付款链接。';
+    document.getElementById('switch-language').textContent='查看英文班报名';
+    window.bookingMemory.show(document.getElementById('payment-resume'),zh);
+    return;
+  }
   const ticketInput = document.getElementById('ticket'), buddy = document.getElementById('buddy-name');
   const tickets = window.OCTOBER_TICKETS[lang], params = new URLSearchParams(location.search);
+  if(params.get('session')?.endsWith('-ZH')){
+    const note=document.createElement('p');note.textContent='Mandarin class registration is temporarily closed. Please choose an English session if suitable.';form.before(note);
+  }
   const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent=zh?'请选择票种':'Choose a ticket';ticketInput.append(placeholder);
   tickets.forEach(t => { const o = document.createElement('option'); o.value=t.key; o.textContent=zh?({standard:'单人票 RM350／人',early:'早鸟票 RM280／人（须核实）',buddy:'双人同行 RM520／2人'}[t.key]):t.label; ticketInput.append(o); });
   document.getElementById('price-policy').textContent=window.OCTOBER_PRICE_POLICY[lang];
@@ -12,7 +23,7 @@
   const soldOut = window.SOLD_OUT_SESSION_IDS || [];
   const availableSessions = publicSessions.filter(s=>!soldOut.includes(s.id));
   let selected = availableSessions.find(s=>s.id===params.get('session'));
-  if(!selected && params.has('date')) { const legacy=params.get('date'); selected=availableSessions.find(s=>legacy===`${s.day}-${s.date.slice(5,7)==='09'?'Sep':'Oct'}` && s.id.endsWith(lang)); }
+  if(!selected && params.has('date')) { const legacy=params.get('date'); selected=availableSessions.find(s=>legacy===`${s.day}-${{ '09':'Sep','10':'Oct','11':'Nov' }[s.date.slice(5,7)]}` && s.id.endsWith(lang)); }
   sessionInput.replaceChildren(new Option(zh?'请选择班期':'Choose a session',''));
   publicSessions.forEach(s=>{
     const full=soldOut.includes(s.id);

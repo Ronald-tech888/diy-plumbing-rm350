@@ -1,4 +1,5 @@
 window.OCTOBER_SESSIONS = [
+{"id": "L1-20261114-EN", "date": "2026-11-14", "day": 14, "language": "English", "time": "09:00–13:00", "capacity": 12},
   {
     "id": "L1-20260912-ZH",
     "date": "2026-09-12",
@@ -89,6 +90,6 @@ window.OCTOBER_SESSIONS = [
   }
 ];
 // Explicit dates prevent accidentally reopening hidden later October sessions.
-window.PUBLIC_SESSION_IDS = ["L1-20261010-EN", "L1-20261010-ZH", "L1-20261017-EN", "L1-20261017-ZH", "L1-20261024-EN", "L1-20261024-ZH"];
+window.PUBLIC_SESSION_IDS = ["L1-20261017-EN", "L1-20261024-EN", "L1-20261114-EN"];
 
 window.SOLD_OUT_SESSION_IDS = ["L1-20261003-EN", "L1-20261003-ZH"];

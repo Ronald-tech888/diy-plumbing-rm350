@@ -19,7 +19,8 @@
   tickets.forEach(t => { const o = document.createElement('option'); o.value=t.key; o.textContent=zh?({standard:'单人票 RM350／人',early:'早鸟票 RM280／人（须核实）',buddy:'双人同行 RM520／2人'}[t.key]):t.label; ticketInput.append(o); });
   document.getElementById('price-policy').textContent=window.OCTOBER_PRICE_POLICY[lang];
   if(tickets.some(t=>t.key===params.get('ticket'))) ticketInput.value=params.get('ticket');
-  const publicSessions = window.OCTOBER_SESSIONS.filter(s => window.PUBLIC_SESSION_IDS.includes(s.id));
+  const publicSessions = window.OCTOBER_SESSIONS.filter(s => window.PUBLIC_SESSION_IDS.includes(s.id))
+    .sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time)||a.id.localeCompare(b.id));
   const soldOut = window.SOLD_OUT_SESSION_IDS || [];
   const availableSessions = publicSessions.filter(s=>!soldOut.includes(s.id));
   let selected = availableSessions.find(s=>s.id===params.get('session'));

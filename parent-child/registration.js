@@ -1,0 +1,102 @@
+(() => {
+  'use strict';
+  const lang = document.body.dataset.language, zh = lang === 'ZH';
+  const form = document.querySelector('form'), sessionInput = document.getElementById('session');
+  if(zh){
+    form.hidden=true;
+    document.querySelector('h1').textContent='中文班暂停报名';
+    document.querySelector('.booking-header > p').textContent='所有中文班暂时关闭新报名。已报名学员仍可使用原付款链接。';
+    document.getElementById('switch-language').textContent='查看英文班报名';
+    window.bookingMemory.show(document.getElementById('payment-resume'),zh);
+    return;
+  }
+  if(!window.PARENT_CHILD_READY){form.hidden=true;document.querySelector('h1').textContent=window.PARENT_CHILD_ERROR;return;}
+  const ticketInput = document.getElementById('ticket'), buddy = document.getElementById('buddy-name');
+  const tickets = window.OCTOBER_TICKETS[lang], params = new URLSearchParams(location.search);
+  if(params.get('session')?.endsWith('-ZH')){
+    const note=document.createElement('p');note.textContent='Mandarin class registration is temporarily closed. Please choose an English session if suitable.';form.before(note);
+  }
+  const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent=zh?'请选择票种':'Choose a ticket';ticketInput.append(placeholder);
+  tickets.forEach(t => { const o = document.createElement('option'); o.value=t.key; o.textContent=zh?({standard:'单人票 RM350／人',early:'早鸟票 RM280／人（须核实）',buddy:'双人同行 RM520／2人'}[t.key]):t.label; ticketInput.append(o); });
+  document.getElementById('price-policy').textContent=window.OCTOBER_PRICE_POLICY[lang];
+  if(tickets.some(t=>t.key===params.get('ticket'))) ticketInput.value=params.get('ticket');
+  const publicSessions = window.OCTOBER_SESSIONS.filter(s => window.PARENT_CHILD_SESSION_IDS.includes(s.id))
+    .sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time)||a.id.localeCompare(b.id));
+  const soldOut = window.SOLD_OUT_SESSION_IDS || [];
+  const availableSessions = publicSessions.filter(s=>!soldOut.includes(s.id));
+  let selected = availableSessions.find(s=>s.id===params.get('session'));
+  if(!selected && !params.has('session') && params.has('date')) { const legacy=params.get('date'); selected=availableSessions.find(s=>legacy===`${s.day}-${{ '12':'Dec' }[s.date.slice(5,7)]}` && s.id.endsWith(lang)); }
+  sessionInput.replaceChildren(new Option(zh?'请选择班期':'Choose a session',''));
+  publicSessions.forEach(s=>{
+    const full=soldOut.includes(s.id);
+    const option=new Option(`${s.date} · ${s.id.endsWith('ZH')?(zh?'中文班':'Mandarin class'):(zh?'英文班':'English class')} · ${s.time}${full?(zh?' · 已满 Full':' · Full'):''}`,s.id);
+    option.disabled=full;sessionInput.add(option);
+  });
+  if(params.has('session') && !selected){
+    const note=document.createElement('p');note.setAttribute('role','alert');
+    note.textContent='This entrypoint is only for the December parent–child sessions. Please choose a listed session.';
+    document.getElementById('booking-choices').before(note);
+  }
+  if(selected) sessionInput.value=selected.id;
+  const choices=document.getElementById('booking-choices'),edit=document.getElementById('edit-booking');
+  if(selected && tickets.some(t=>t.key===ticketInput.value)){
+    choices.hidden=true;edit.hidden=false;
+    document.querySelector('h1').textContent=zh?'完成课程报名':'Complete your registration';
+    document.querySelector('.booking-header > p').textContent=zh?'请核对以下班期与报价，再填写联络资料。':'Review your session and quote below, then enter your contact details.';
+  }
+  edit.addEventListener('click',()=>{choices.hidden=!choices.hidden;edit.setAttribute('aria-expanded',String(!choices.hidden));if(!choices.hidden)sessionInput.focus();});
+  try{const saved=JSON.parse(sessionStorage.getItem('booking-language-draft')||'null');sessionStorage.removeItem('booking-language-draft');if(saved){for(const [name,value] of Object.entries(saved)){const field=form.elements[name];if(field && !['hidden','checkbox'].includes(field.type))field.value=value;}}}catch{}
+  document.getElementById('switch-language').addEventListener('click',()=>{try{const draft={};for(const name of ['Full Name','email','WhatsApp / Mobile','Buddy Participant','Refer By'])draft[name]=form.elements[name].value;sessionStorage.setItem('booking-language-draft',JSON.stringify(draft));}catch{}});
+  let registrationId = 'REG-'+crypto.randomUUID();
+  const current = () => ({s:availableSessions.find(s=>s.id===sessionInput.value),t:tickets.find(t=>t.key===ticketInput.value)});
+  function update(){
+    let {s,t}=current();if(s && !ticketInput.value){ticketInput.value='buddy';t=current().t;}buddy.required=t?.seats===2;document.getElementById('buddy-field').hidden=t?.seats!==2;
+    window.renderBookingSummary(document.getElementById('order-summary'),s,t,zh);
+    const u=new URL(document.getElementById('switch-language').href);
+    u.searchParams.delete('session');
+    if(s)u.searchParams.set('session',s.id);
+    u.searchParams.delete('ticket');if(t)u.searchParams.set('ticket',t.key);
+    for(const key of ['source','utm_source','utm_medium','utm_campaign','utm_content','fbclid'])if(params.has(key))u.searchParams.set(key,params.get(key));
+    document.getElementById('switch-language').href=u.href;
+  }
+  sessionInput.addEventListener('change',update);ticketInput.addEventListener('change',update);update();
+  window.bookingMemory.show(document.getElementById('payment-resume'),zh);
+  let submitting=false;
+  form.addEventListener('submit',async event=>{
+    event.preventDefault();if(submitting||!form.reportValidity())return;
+    const {s,t}=current();if(!s||!t)return;
+    submitting=true;
+    const button=form.querySelector('button[type="submit"]'), original=button.textContent;
+    button.disabled=true;button.textContent=zh?'正在提交…':'Submitting…';
+    document.getElementById('form-error').textContent='';
+    const data=new FormData(form);
+    data.set('Photo and Video Consent',form.elements['Photo and Video Consent'].checked?'Yes':'No');
+    data.set('Marketing Consent',form.elements['Marketing Consent'].checked?'Yes':'No');
+    data.set('Privacy Notice Version','2026-09-07');
+    data.set('Consent Recorded At',new Date().toISOString());
+    const dateParts=s.date.split('-').map(Number);
+    const workshopDate=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(dateParts[0],dateParts[1]-1,dateParts[2])));
+    data.set('Ticket',t.label);data.set('Workshop Date',workshopDate);
+    data.set('Class Language',s.language);data.set('Class Time MYT',s.time);data.set('Seats',String(t.seats));
+    data.set('Amount Due RM',String(t.amount));data.set('Registration ID',registrationId);
+    data.set('Lead Source',params.get('source')||'parent-child-direct');
+    data.set('Additional Notes',`Project: DIY Plumbing Parent–Child Workshop; Session: ${s.id}; Language: ${s.language}; Time: ${s.time} MYT; Seats: ${t.seats}; Registration: ${registrationId}`);
+    data.set('_subject',`New DIY Plumbing Registration - ${s.id}`);
+    if(t.seats!==2)data.delete('Buddy Participant');
+    for(const key of ['utm_source','utm_medium','utm_campaign','utm_content','fbclid'])if(params.has(key))data.set(key,params.get(key));
+    const paymentParams=new URLSearchParams({session:s.id,ticket:t.key,registration:registrationId});
+    const destination=new URL('thanks.html',location.href);destination.search=paymentParams.toString();
+    data.set('_next',destination.href);
+    try{
+      const response=await fetch(form.action,{method:'POST',body:data,headers:{Accept:'application/json'}});
+      if(!response.ok)throw new Error('Submission failed');
+      // Never emit Purchase: a successful registration is not verified payment.
+      try{if(typeof fbq==='function')fbq('track','Lead',{content_name:s.id,content_category:'Workshop',value:t.amount,currency:'MYR'});}catch{}
+      try{sessionStorage.setItem('submitted-'+registrationId,'yes');}catch{}
+      location.href=destination.href;
+    }catch{
+      document.getElementById('form-error').textContent=zh?'未能确认提交成功，请重试或WhatsApp联系Ronald：+60133083049。':'Could not confirm submission. Retry or WhatsApp Ronald: +60133083049.';
+      submitting=false;button.disabled=false;button.textContent=original;
+    }
+  });
+})();

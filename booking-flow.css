@@ -48,3 +48,5 @@
 .payment-resume{padding:14px;border:1px solid #c8deef;border-radius:10px;background:#f4f9fc;margin:0 0 20px;font-size:14px;line-height:1.6}
 .payment-resume a{display:block;color:#0b4f89;font-weight:600;padding-top:8px}.payment-resume p{margin:0;font-size:13px}
 .save-payment{margin:12px 0 20px;font-size:13px}.payment-page .return-note{color:#526575}
+
+.payment-qr{margin-top:18px}.payment-qr img{display:block;width:100%;max-width:400px;height:auto;margin:0 auto;border-radius:8px}.qr-actions{display:flex;flex-wrap:wrap;gap:8px 20px;margin:12px 0}.qr-actions a{color:#0b4f89;text-decoration:underline;min-height:44px;display:inline-flex;align-items:center;font-size:14px}.payment-qr p{font-size:13px;color:#526575;line-height:1.6}

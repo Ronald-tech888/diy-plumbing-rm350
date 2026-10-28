@@ -31,8 +31,8 @@
     const option=new Option(`${s.date} · ${s.id.endsWith('ZH')?(zh?'中文班':'Mandarin class'):(zh?'英文班':'English class')} · ${s.time}${full?(zh?' · 已满 Full':' · Full'):''}`,s.id);
     option.disabled=full;sessionInput.add(option);
   });
-  if(soldOut.includes(params.get('session'))||params.get('date')==='3-Oct'){
-    const note=document.createElement('p');note.setAttribute('role','status');note.textContent=zh?'10月3日报名已关闭，请选择其他班期。':'Registration for 3 October is closed. Please choose another session.';
+  if(soldOut.includes(params.get('session'))||['L1-20261017-EN','L1-20261024-EN'].includes(params.get('session'))||['3-Oct','17-Oct','24-Oct'].includes(params.get('date'))){
+    const note=document.createElement('p');note.setAttribute('role','status');note.textContent=zh?'该班期报名已关闭，请选择其他班期。':'Registration for this session is closed. Please choose another session.';
     document.getElementById('booking-choices').before(note);
   }
   if(selected) sessionInput.value=selected.id;
